@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<title>Фонд ЧЕСТНЫЙ ПОЛИТЗЕК | Юрий Чудинович</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Комитет солидарности с репрессированными. Поддержка политзаключённых и их семей." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+
+<style>
+/* --- БАЗОВЫЕ НАСТРОЙКИ --- */
+:root {
+  --bg: #0b1120;
+  --bg-alt: #020617;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #1d4ed8;
+  --accent-soft: #111827;
+  --border: #1f2937;
+  --card: #020617;
+  --danger: #dc2626;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
+}
+:root[data-theme="light"] {
+  --bg: #f3f4f6;
+  --bg-alt: #fff;
+  --fg: #111827;
+  --muted: #6b7280;
+  --accent-soft: #e5e7eb;
+  --border: #d1d5db;
+  --card: #fff;
+  --shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  padding-bottom: 150px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; cursor: pointer; }
+
+/* --- HERO АНИМАЦИЯ --- */
+.hero {
+  width: 100%; height: 45vh; min-height: 220px; max-height: 420px;
+  position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(-10px);
+  animation: heroFadeIn .9s ease-out forwards;
+  border: 2px solid #000; background: #000;
+  z-index: 1;
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-stripes {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, #fff 0%, #fff 33.33%, #ff0000 33.33%, #ff0000 66.66%, #fff 66.66%, #fff 100%);
+  transform: rotateX(5deg); transform-origin: center bottom;
+  animation: stripes3D 6s infinite ease-in-out;
+  pointer-events: none;
+}
+@keyframes stripes3D {
+  0%, 100% { transform: rotateX(5deg) rotateY(0deg); }
+  25% { transform: rotateX(5deg) rotateY(2deg); }
+  50% { transform: rotateX(5deg) rotateY(0deg); }
+  75% { transform: rotateX(5deg) rotateY(-2deg); }
+}
+.hero-top-text {
+  position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
+  font-size: 1.8rem; font-weight: 700; text-align: center;
+  line-height: 1.2; color: #000;
+  text-shadow: 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(255, 255, 255, .5);
+  pointer-events: none; z-index: 5; white-space: nowrap;
+}
+.hero-top-text span { display: block; animation: topTextGlow 3s infinite alternate; }
+@keyframes topTextGlow {
+  0% { text-shadow: 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(255, 255, 255, .5); }
+  100% { text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 24px rgba(255, 255, 255, .7); }
+}
+
+/* --- БЕГУЩАЯ СТРОКА --- */
+.hero-marquee-wrapper {
+  position: absolute; bottom: 40px; width: 100%; overflow: hidden; pointer-events: none; z-index: 6;
+}
+.hero-text {
+  display: inline-block; white-space: nowrap;
+  font-size: 4.8rem; font-weight: 800; text-transform: uppercase;
+  color: #fff; line-height: .9;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+  padding-left: 100%;
+  animation: marquee 20s linear infinite, textSparkle 3s infinite linear;
+}
+@keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+@keyframes textSparkle {
+  0% { color: #fff; filter: hue-rotate(0deg) brightness(1); }
+  25% { color: #ff0000; filter: hue-rotate(90deg) brightness(1.2); }
+  50% { color: #0000ff; filter: hue-rotate(180deg) brightness(1.5); }
+  75% { color: #ff00ff; filter: hue-rotate(270deg) brightness(1.2); }
+  100% { color: #fff; filter: hue-rotate(360deg) brightness(1); }
+}
+@media (max-width: 768px) {
+  .hero-top-text { font-size: 1.3rem; top: 6%; }
+  .hero-text { font-size: 3.2rem; bottom: 30px; }
+}
+
+/* --- НАВИГАЦИЯ --- */
+.lang-bar {
+  background: var(--bg-alt); position: sticky; top: 0; z-index: 1000;
+  backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+}
+.lang-bar-inner {
+  max-width: 1120px; margin: 0 auto; padding: .75rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.lang-group { display: flex; gap: .5rem; }
+.lang-group input { display: none; }
+.lang-group label {
+  padding: .5rem 1rem; border: 2px solid var(--border); border-radius: 999px;
+  cursor: pointer; font-size: .85rem; font-weight: 600;
+  background: var(--card); color: var(--muted); transition: 0.3s;
+}
+.lang-group input:checked + label {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+  box-shadow: 0 0 15px rgba(29, 78, 216, .5);
+}
+.theme-toggle {
+  background: var(--card); border: 2px solid var(--border); border-radius: 999px;
+  padding: .4rem .8rem; cursor: pointer; min-width: 44px; font-size: 1.2rem;
+}
+
+/* --- КАРТОЧКИ --- */
+.card-scroll {
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 1rem; max-width: 1120px; margin: 0 auto;
+}
+.info-card {
+  min-width: 320px; max-width: 380px; scroll-snap-align: start;
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.8rem; background: var(--card); box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+.info-card:hover { transform: translateY(-6px); }
+.info-card h3 { margin: 0 0 1rem; color: var(--fg); border-bottom: 2px solid var(--accent); padding-bottom: .5rem; }
+.info-card p { color: var(--muted); font-size: 0.95rem; }
+.card-date {
+  display: inline-block; background: var(--accent-soft);
+  padding: .2rem .6rem; border-radius: 999px;
+  font-size: .8rem; margin-bottom: .8rem; color: var(--accent);
+}
+
+/* --- АНИМАЦИЯ 3D МОНЕТЫ --- */
+.coin-container {
+    width: 90px; height: 90px; margin: 0 auto 15px auto;
+    perspective: 1000px;
+}
+.coin {
+    width: 100%; height: 100%; position: relative;
+    transform-style: preserve-3d;
+    animation: spinCoin 4s linear infinite;
+}
+.coin-face {
+    position: absolute; width: 100%; height: 100%;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 14px; color: #713f12;
+    background: radial-gradient(circle at 30% 30%, #fcd34d, #f59e0b);
+    border: 3px solid #b45309;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    backface-visibility: hidden;
+}
+.front { transform: translateZ(5px); }
+.back { 
+    transform: rotateY(180deg) translateZ(5px); 
+    background: radial-gradient(circle at 30% 30%, #fbbf24, #d97706);
+    color: #451a03;
+}
+/* Анимация вращения */
+@keyframes spinCoin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* --- ФОТО КАРТОЧКА --- */
+.photo-card {
+  padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 500px; border: none; position: relative;
+}
+.photo-card-bg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+}
+.photo-card-content {
+  position: relative; z-index: 10;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
+  padding: 2rem; color: #fff; text-align: center;
+}
+.photo-card-content h3 { color: #fff; border-bottom-color: rgba(255,255,255,0.5); }
+
+/* --- КНОПКИ --- */
+.btn-primary {
+  display: block; text-align: center; padding: .85rem; border-radius: 999px;
+  background: var(--accent); color: #fff; font-weight: 700; margin-top: 1rem; transition: 0.3s;
+  position: relative; z-index: 20; border: none;
+}
+.btn-primary:hover { transform: scale(1.02); background: #1e40af; }
+.photo-btn { background: #fff; color: #000; border: none; margin-top: 1rem; }
+.photo-btn:hover { background: var(--accent); color: #fff; }
+.btn-danger {
+  background: var(--danger); position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  width: 92%; max-width: 480px; padding: 1rem; border-radius: 50px; text-align: center;
+  color: #fff; font-weight: bold; box-shadow: 0 8px 24px rgba(220, 38, 38, .55);
+  z-index: 9999; border: 2px solid rgba(255,255,255,0.2);
+}
+.btn-danger:hover { transform: translateX(-50%) scale(1.05); background: #b91c1c; }
+
+/* --- ПЛАТЕЖИ --- */
+.payment-section {
+  max-width: 1120px; margin: 2rem auto; padding: 0 1rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;
+}
+.payment-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;
+  transition: 0.3s;
+}
+.payment-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.bank-info {
+    font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.4;
+    border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem;
+}
+.copy-box {
+  display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05);
+  padding: 0.6rem; border-radius: 8px; font-family: monospace; font-size: 0.8rem; margin-top: 5px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.val { flex-grow: 1; word-break: break-all; color: var(--fg); }
+.copy-btn {
+  background: var(--accent); color: #fff; border: none; padding: 0.4rem 0.6rem;
+  border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.75rem; white-space: nowrap;
+}
+.net-badge {
+    display: inline-block; background: var(--danger); color: #fff; font-size: 0.7rem; 
+    padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-left: 5px; vertical-align: middle;
+}
+
+/* --- ФУТЕР --- */
+.site-footer {
+  border-top: 1px solid var(--border); background: var(--bg-alt);
+  padding: 2rem 1rem 3rem; margin-top: 4rem;
+}
+.footer-inner {
+  max-width: 1120px; margin: 0 auto; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+}
+.footer-block h3 { margin-bottom: 1rem; color: var(--fg); border-bottom: 2px solid var(--accent); padding-bottom: .5rem; }
+.footer-block li { margin-bottom: 8px; color: var(--muted); list-style: none; }
+.footer-block a { color: var(--accent); position: relative; z-index: 10; }
+
+/* --- СОЦСЕТИ --- */
+.social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: .8rem; margin-top: .8rem; }
+.social-btn {
+  aspect-ratio: 1; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  transition: 0.3s; color: #fff; position: relative; z-index: 10;
+}
+.social-btn svg { pointer-events: none; }
+.social-btn:hover { transform: scale(1.1); filter: brightness(1.15); }
+.social-icon { width: 28px; height: 28px; fill: currentColor; }
+.social-tg { background: #229ED9; }
+.social-fb { background: #1877F2; }
+.social-yt { background: #FF0000; }
+.social-x { background: #000000; border: 1px solid #333; }
+.social-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.social-tt { background: #000000; border: 1px solid #333; }
+.social-vk { background: #0077FF; }
+
+.messenger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: .8rem; margin-top: .8rem; }
+.messenger-btn {
+  padding: .6rem; border-radius: 12px; background: var(--card); border: 1px solid var(--border);
+  color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 0.9rem; transition: 0.3s; position: relative; z-index: 10;
+}
+.messenger-btn:hover { border-color: var(--accent); color: var(--accent); }
+.messenger-btn svg { width: 20px; height: 20px; fill: currentColor; pointer-events: none; }
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="hero-stripes"></div>
+  <div class="hero-top-text">
+    <span data-i18n="hero_name">ЧУДИНОВИЧ ЮРИЙ ЕВГЕНЬЕВИЧ</span>
+  </div>
+  <div class="hero-marquee-wrapper">
+    <div class="hero-text" data-i18n="marquee">ФОНД ЧЕСТНЫЙ ПОЛИТЗЕК • ПОДДЕРЖКА • СОЛИДАРНОСТЬ • </div>
+  </div>
+</header>
+
+<nav class="lang-bar">
+  <div class="lang-bar-inner">
+    <form class="lang-group" id="langForm">
+      <input type="radio" name="lang" id="ru" value="ru" checked><label for="ru">🇷🇺 RU</label>
+      <input type="radio" name="lang" id="pl" value="pl"><label for="pl">🇵🇱 PL</label>
+      <input type="radio" name="lang" id="en" value="en"><label for="en">🇬🇧 EN</label>
+      <input type="radio" name="lang" id="be" value="be"><label for="be">🇧🇾 BE</label>
+    </form>
+    <button class="theme-toggle" id="themeToggle"><span id="themeIcon">☀️</span></button>
+  </div>
+</nav>
+
+<main>
+  <section class="card-scroll" id="main">
+    
+    <article class="info-card photo-card">
+        <img src="1000023339.jpg" alt="Политик" class="photo-card-bg">
+        <div class="photo-card-content">
+            <h3 data-i18n="card_photo_title">Политик, общественный деятель</h3>
+            <a href="https://t.me/+48795972990" target="_blank" class="btn-primary photo-btn" data-i18n="card_photo_button">Связаться со мной</a>
+        </div>
+    </article>
+
+    <article class="info-card photo-card">
+      <img src="1000024262.png" alt="Smart Contract" class="photo-card-bg">
+      <div class="photo-card-content">
+        <h3 data-i18n="card_crypto_title">Смарт-контракт CHUDO</h3>
+      </div>
+    </article>
+
+    <article class="info-card">
+      <h3 data-i18n="card1_title">Юрий Чудинович</h3>
+      <span class="card-date">22.06.2021</span>
+      <p data-i18n="card1_text">Белорусский общественный активист и предприниматель из Барановичей. Задержан 22 июня 2021 года.</p>
+    </article>
+
+    <article class="info-card">
+      <h3 data-i18n="card2_title">Партия «ДЕЛ»</h3>
+      <p data-i18n="card2_text">Основана и учреждена Юрием Евгеньевичем Чудиновичем в ИВС города Барановичи.</p>
+    </article>
+
+    <article class="info-card" style="text-align:center;">
+      <div class="coin-container">
+          <div class="coin">
+              <div class="coin-face front">CHUDO</div>
+              <div class="coin-face back">KRC20</div>
+          </div>
+      </div>
+      <h3 data-i18n="card3_title">Криптовалюта CHUDO</h3>
+      <span class="card-date">16.12.2025</span>
+      <p data-i18n="card3_text">Токен стандарта KRC-20 в сети Kaspa. Первый блок зафиксирован в блокчейне 16 декабря 2025 года.</p>
+    </article>
+
+    <article class="info-card">
+      <h3 data-i18n="card4_title">Фонд «Честный политзек»</h3>
+      <p data-i18n="card4_text">Учреждён на собрании 16 декабря 2025 года. Оказывает помощь политзаключённым и их семьям.</p>
+      <a href="https://zrzutka.pl/komitet-solidarnosci-represjonowanych" target="_blank" class="btn-primary" data-i18n="card4_button">Поддержать фонд</a>
+    </article>
+  </section>
+
+  <div class="payment-section">
+      <div class="payment-card">
+          <h3 style="color:var(--accent)">PKO Bank Polski (PLN/EUR)</h3>
+          <div class="bank-info">
+              <div>Card: <strong>4251 2513 6480 1214</strong> (до 11/30)</div>
+              <div>SWIFT: <strong>BPKOPLPW</strong></div>
+          </div>
+          <div style="margin-bottom:5px">
+              <span style="font-size:0.7rem; color:var(--muted)">IBAN (PL)</span>
+              <div class="copy-box"><span class="val" id="iban_pl">PL98 1020 1185 0000 4502 0419 7976</span><button class="copy-btn" data-target="iban_pl">Copy</button></div>
+          </div>
+      </div>
+
+      <div class="payment-card">
+          <h3 style="color:var(--accent)">Revolut (Multicurrency)</h3>
+          <div class="bank-info">
+              <div>Card: <strong>4165 9871 1998 8302</strong> (до 10/30)</div>
+              <div>SWIFT: <strong>REVOLT21</strong> | Corr: <strong>CHASDEFX</strong></div>
+              <div style="font-size:0.75rem; margin-top:3px">Revolut Bank UAB, Konstitucijos ave. 21B, Vilnius</div>
+          </div>
+          <div style="margin-bottom:5px">
+              <span style="font-size:0.7rem; color:var(--muted)">IBAN (International)</span>
+              <div class="copy-box"><span class="val" id="iban_rev">LT81 3250 0653 6173 6755</span><button class="copy-btn" data-target="iban_rev">Copy</button></div>
+          </div>
+      </div>
+
+      <div class="payment-card">
+          <h3 style="color:var(--accent)">Криптовалюта</h3>
+          <p style="font-size:0.8rem; color:var(--danger); margin-bottom:10px;">⚠️ Внимание! Переводите только в указанной сети!</p>
+          
+          <div style="margin-bottom:10px">
+              <span style="font-size:0.75rem; color:var(--muted)">Bitcoin <span class="net-badge">BTC Network</span></span>
+              <div class="copy-box"><span class="val" id="btc">bc1qp3gzyyknnlzcfll6yks4lezjfdaustan6w64e9</span><button class="copy-btn" data-target="btc">Copy</button></div>
+          </div>
+          <div style="margin-bottom:10px">
+              <span style="font-size:0.75rem; color:var(--muted)">USDT <span class="net-badge">TRC-20 (Tron)</span></span>
+              <div class="copy-box"><span class="val" id="usdt">TQMo2KNXE8n961ddNFfJdcH4ZixVmMeU8U</span><button class="copy-btn" data-target="usdt">Copy</button></div>
+          </div>
+          <div style="margin-bottom:10px">
+              <span style="font-size:0.75rem; color:var(--muted)">USDC <span class="net-badge">Solana</span></span>
+              <div class="copy-box"><span class="val" id="usdc">FKyHQKi7st4SWQQoKoEJ4zSSyX54AFcnykEHwPjAqYNJ</span><button class="copy-btn" data-target="usdc">Copy</button></div>
+          </div>
+          <div>
+              <span style="font-size:0.75rem; color:var(--muted)">ETH <span class="net-badge">Arbitrum</span></span>
+              <div class="copy-box"><span class="val" id="eth">0xb6fd3908EB2BC7a428Aa905dC7Dab42884AEf320</span><button class="copy-btn" data-target="eth">Copy</button></div>
+          </div>
+      </div>
+  </div>
+</main>
+
+<a href="https://zrzutka.pl/komitet-solidarnosci-represjonowanych" target="_blank" class="btn-danger" data-i18n="support_button">Поддержать сейчас</a>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-block">
+      <h3 data-i18n="footer_title1">Юрий Чудинович</h3>
+      <ul>
+        <li><strong data-i18n="footer_address">Адрес:</strong> Польша, Варшава, ul. Lokcowa 12</li>
+        <li><strong>Email:</strong> <a href="mailto:6900908@gmail.com">6900908@gmail.com</a></li>
+        <li><strong data-i18n="footer_status">Статус:</strong> Политзаключённый</li>
+      </ul>
+    </div>
+    <div class="footer-block">
+      <h3 data-i18n="footer_title3">Соцсети</h3>
+      <div class="social-grid">
+        <a href="https://youtube.com/@ЧУДИНОВИЧ-ЮРА" target="_blank" class="social-btn social-yt">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://t.me/Z690001" target="_blank" class="social-btn social-tg">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M11.944 0C5.347 0 0 5.347 0 11.944c0 6.597 5.347 11.944 11.944 11.944 6.597 0 11.944-5.347 11.944-11.944C23.888 5.347 18.541 0 11.944 0zm5.204 8.12l-1.764 8.312c-.133.593-.483.738-.982.458l-2.686-1.98-1.296 1.246c-.144.144-.264.264-.54.264l.192-2.73 4.968-4.488c.216-.192-.048-.3-.336-.108L8.568 12.44 5.916 11.61c-.576-.18-.588-.576.12-.852l10.38-4.008c.48-.18.9.108.732.372z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1bJi1GCA85/" target="_blank" class="social-btn social-fb">
+            <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://x.com/CHUDZINOVICH1" target="_blank" class="social-btn social-x">
+             <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/Chudzinovichyury" target="_blank" class="social-btn social-ig">
+             <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@chudzinovich" target="_blank" class="social-btn social-tt">
+             <svg class="social-icon" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v6.14c0 3.48-2.32 5.79-5.49 6.31-3.23.54-6.58-1.24-7.85-4.23-1.25-2.95.27-6.28 3.14-7.56 1.43-.63 3.07-.63 4.5.01v4.06c-.83-.49-1.85-.59-2.74-.25-.89.34-1.52 1.11-1.67 2.06-.15.95.27 1.91 1.05 2.44.79.54 1.83.56 2.64.07.78-.47 1.25-1.32 1.24-2.23V.02z"/></svg>
+        </a>
+        <a href="https://vk.com/id1045369290" target="_blank" class="social-btn social-vk">
+             <svg class="social-icon" viewBox="0 0 24 24"><path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.918.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 .758-.85.054-1.551-3.085-3.075-1.592-3.477.516-6.443 1.052-1.48 1.574-2.274 1.34-2.923-.231-.645-1.545-.733-1.545-.733H20.07c-.496 0-.825.187-1.117.703 0 0-2.43 4.794-5.388 5.097-.478.05-.681-.225-.681-.868V9.114c0-2.613.627-3.136-1.353-3.284-1.564-.117-2.618.067-3.359.539-.511.326-.062.868.272 1.12 1.042.784 1.011 2.454 1.011 2.454s-.043 4.558-1.243 5.228c-1.312.733-4.148-3.666-5.833-7.542-.239-.548-.522-.841-1.192-.841H2.889c-.66 0-.792.342-.792.684 0 .708 2.071 9.457 9.617 10.654.516.082 1.448-.132 1.448-.132z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h3 data-i18n="footer_title4">Мессенджеры</h3>
+      <div class="messenger-grid">
+        <a href="https://wa.me/48795972990" target="_blank" class="messenger-btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://t.me/+48795972990" target="_blank" class="messenger-btn">
+          <svg viewBox="0 0 24 24"><path d="M11.944 0C5.347 0 0 5.347 0 11.944c0 6.597 5.347 11.944 11.944 11.944 6.597 0 11.944-5.347 11.944-11.944C23.888 5.347 18.541 0 11.944 0zm5.204 8.12l-1.764 8.312c-.133.593-.483.738-.982.458l-2.686-1.98-1.296 1.246c-.144.144-.264.264-.54.264l.192-2.73 4.968-4.488c.216-.192-.048-.3-.336-.108L8.568 12.44 5.916 11.61c-.576-.18-.588-.576.12-.852l10.38-4.008c.48-.18.9.108.732.372z"/></svg>
+          Telegram
+        </a>
+        <a href="viber://chat?number=%2B48795972990" target="_blank" class="messenger-btn">
+          <svg viewBox="0 0 24 24"><path d="M21.514 15.356c-.573.491-1.385.586-2.072.261-.31-.148-2.618-1.31-4.05-2.766-1.503-1.527-2.617-3.84-2.756-4.135-.295-.623-.195-1.36.216-1.916l1.378-1.859c.262-.353.303-.808.106-1.203l-2.115-4.24c-.234-.47-.755-.694-1.238-.544L8.74 1.13c-2.321.72-3.805 2.76-3.805 5.23 0 7.854 6.273 14.238 13.996 14.238 2.304 0 4.256-1.42 4.965-3.64l.21-1.815c.162-.51-.048-1.077-.492-1.341l-2.1-1.446z"/></svg>
+          Viber
+        </a>
+        <a href="https://signal.me/#eu/XPsDuUfuqaGEhDnm0PqwSqDg89ft7TGGfRXE0Zt0EQkVb1vlPi9FQpHt2Fe8JBb3" target="_blank" class="messenger-btn">
+          <svg viewBox="0 0 24 24"><path d="M11.96 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.6 17.5c-.88 0-1.6-.72-1.6-1.6 0-.3.12-.72.48-1.2l.48-.6c.24-.3.48-.6.48-.9 0-.42-.36-.72-.78-.72-.42 0-.78.3-.78.78 0 .42-.12.84-.42 1.2-.24.3-.66.42-1.02.42-.42 0-.78-.36-.78-.78 0-1.2 1.02-2.16 2.58-2.16.88 0 1.6.72 1.6 1.6 0 .3-.12.72-.48 1.2l-.48.6c-.24.3-.48.6-.48.9 0 .42.36.72.78.72.42 0 .78-.3.78-.78 0-.42.12-.84.42-1.2.24-.3.66-.42 1.02-.42.42 0 .78.36.78.78 0 1.2-1.02 2.16-2.58 2.16zm5.82-.48c-.42.42-.96.6-1.56.48-1.02-.24-1.68-1.2-1.62-2.34.06-1.14.78-2.04 1.8-2.28.6-.12 1.14.06 1.56.48.42.42.6 1.02.48 1.62-.12.6-.48 1.08-.9 1.5l.36.36c.18.18.36.3.3.6-.06.24-.24.42-.48.48zm2.46-.36c-.42.36-.96.48-1.5.3-1.02-.3-1.56-1.32-1.38-2.46.18-1.14 1.02-1.92 2.04-2.04.54-.06 1.08.18 1.44.6.36.42.48 1.02.3 1.62-.18.6-.6 1.02-1.02 1.38l.3.36c.18.18.36.3.3.6 0 .24-.18.42-.42.54z"/></svg>
+          Signal
+        </a>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:2rem; color:var(--muted); font-size:0.8rem;">© 2025 ЧЕСТНЫЙ ПОЛИТЗЕК</p>
+</footer>
+
+<script>
+document.documentElement.classList.remove('no-js');
+
+const translations = {
+  ru: {
+    hero_name: "ЧУДИНОВИЧ ЮРИЙ ЕВГЕНЬЕВИЧ",
+    marquee: "ФОНД ЧЕСТНЫЙ ПОЛИТЗЕК • ПОДДЕРЖКА • СОЛИДАРНОСТЬ • ",
+    card_photo_title: "Политик, общественный деятель",
+    card_photo_button: "Связаться со мной",
+    card_crypto_title: "Смарт-контракт CHUDO",
+    card1_title: "Юрий Чудинович",
+    card1_text: "Белорусский общественный активист и предприниматель из Барановичей. Задержан 22 июня 2021 года. Осуждён, отбывал наказание в ИК-17 (Шклов), переведён в тюрьму №8 Жодино.",
+    card2_title: "Партия «ДЕЛ»",
+    card2_text: "Основана и учреждена Юрием Евгеньевичем Чудиновичем в ИВС города Барановичи. Политическая организация, выступающая за демократические реформы.",
+    card3_title: "Криптовалюта CHUDO",
+    card3_text: "Токен стандарта KRC-20 в сети Kaspa. Первый блок зафиксирован в блокчейне 16 декабря 2025 года.",
+    card4_title: "Фонд «Честный политзек»",
+    card4_text: "Учреждён на собрании 16 декабря 2025 года. Адрес: Польша, Варшава, ul. Lokcowa 12. Оказывает помощь политзаключённым, их семьям и жертвам репрессий.",
+    card4_button: "Поддержать фонд",
+    support_button: "Поддержать сейчас",
+    footer_title1: "Юрий Чудинович",
+    footer_address: "Адрес:",
+    footer_status: "Статус:",
+    footer_title3: "Соцсети",
+    footer_title4: "Мессенджеры"
+  },
+  pl: {
+    hero_name: "JURIJ CZUDINOWICZ",
+    marquee: "FUNDUSZ UCZCIWY WIĘZIEŃ POLITYCZNY • WSPARCIE • SOLIDARNOŚĆ • ",
+    card_photo_title: "Polityk, działacz społeczny",
+    card_photo_button: "Skontaktuj się ze mną",
+    card_crypto_title: "Smart kontrakt CHUDO",
+    card1_title: "Jurij Czudinowicz",
+    card1_text: "Białoruski działacz społeczny i przedsiębiorca z Baranowicz. Zatrzymany 22 czerwca 2021.",
+    card2_title: "Partia «DEL»",
+    card2_text: "Założona przez Jurija Czudinowicza w IWS w Baranowiczach. Organizacja polityczna występująca za reformami demokratycznymi.",
+    card3_title: "Kryptowaluta CHUDO",
+    card3_text: "Token standardu KRC-20 w sieci Kaspa. Pierwszy blok zapisany w blockchain 16 grudnia 2025.",
+    card4_title: "Fundusz «Uczciwy więzień polityczny»",
+    card4_text: "Adres: Polska, Warszawa, ul. Lokcowa 12. Udziela pomocy więźniom politycznym.",
+    card4_button: "Wesprzyj fundusz",
+    support_button: "Wesprzyj teraz",
+    footer_title1: "Jurij Czudinowicz",
+    footer_address: "Adres:",
+    footer_status: "Status:",
+    footer_title3: "Media społecznościowe",
+    footer_title4: "Messengerzy"
+  },
+  en: {
+    hero_name: "YURY CHUDZINOVICH",
+    marquee: "HONEST POLITICAL PRISONER FUND • SUPPORT • SOLIDARITY • ",
+    card_photo_title: "Politician, Public Figure",
+    card_photo_button: "Contact Me",
+    card_crypto_title: "Smart Contract CHUDO",
+    card1_title: "Yury Chudzinvich",
+    card1_text: "Belarusian social activist and entrepreneur from Baranovichi. Arrested on June 22, 2021.",
+    card2_title: "Party «DEL»",
+    card2_text: "Founded by Yuri Chudinovich. A political organization advocating for democratic reforms.",
+    card3_title: "Cryptocurrency CHUDO",
+    card3_text: "KRC-20 token on the Kaspa network. First block recorded on December 16, 2025.",
+    card4_title: "Fund «Honest Political Prisoner»",
+    card4_text: "Address: Poland, Warsaw, ul. Lokcowa 12. Provides assistance to political prisoners.",
+    card4_button: "Support the Fund",
+    support_button: "Support Now",
+    footer_title1: "Yury Chudzinvich",
+    footer_address: "Address:",
+    footer_status: "Status:",
+    footer_title3: "Social Media",
+    footer_title4: "Messengers"
+  },
+  be: {
+    hero_name: "ЮРЫЙ ЧУДЗІНОВІЧ",
+    marquee: "ФОНД ЧЭСНЫ ПАЛІТВЯЗАНЬ • ПАДТРЫМКА • САЛІДАРНАСЦЬ • ",
+    card_photo_title: "Палітык, грамадскі дзеяч",
+    card_photo_button: "Звязацца са мной",
+    card_crypto_title: "Смарт-кантракт CHUDO",
+    card1_title: "Юры Чудзіновіч",
+    card1_text: "Беларускі грамадскі актывіст. Затрыманы 22 чэрвеня 2021 года.",
+    card2_title: "Партыя «ДЕЛ»",
+    card2_text: "Заснавана Юрыем Чудзіновічам. Палітычная арганізацыя.",
+    card3_title: "Крыптавалюта CHUDO",
+    card3_text: "Токен стандарту KRC-20 у сетцы Kaspa.",
+    card4_title: "Фонд «Чэсны палітвязень»",
+    card4_text: "Адрас: Польшча, Варшава, ul. Lokcowa 12. Дапамога палітвязням.",
+    card4_button: "Падтрымаць фонд",
+    support_button: "Падтрымаць зараз",
+    footer_title1: "Юры Чудзіновіч",
+    footer_address: "Адрас:",
+    footer_status: "Статус:",
+    footer_title3: "Сацыяльныя сеткі",
+    footer_title4: "Месенджары"
+  }
+};
+
+document.querySelectorAll('input[name="lang"]').forEach(radio => {
+  radio.addEventListener('change', (e) => {
+    const lang = e.target.value;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        if (translations[lang][key].includes('<')) {
+           el.innerHTML = translations[lang][key];
+        } else {
+           el.textContent = translations[lang][key];
+        }
+      }
+    });
+  });
+});
+
+// Кнопки копирования
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+    const text = document.getElementById(btn.dataset.target).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const old = btn.textContent;
+        btn.textContent = '✅';
+        setTimeout(() => btn.textContent = old, 1500);
+    });
+});
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeIcon').textContent = isDark ? '🌙' : '☀️';
+});
+</script>
+</body>
+</html>

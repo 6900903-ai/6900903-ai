@@ -1,603 +1,1400 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark" class="no-js">
+<html lang="ru" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<title>Фонд ЧЕСТНЫЙ ПОЛИТЗЕК | Юрий Чудинович</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Комитет солидарности с репрессированными. Поддержка политзаключённых и их семей." />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
-
+<meta charset="UTF-8"/>
+<title>Фонд ЧЕСТНЫЙ ПОЛИТЗЕК | Чудзинович Юрий Евгеньевич</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Официальный сайт Юрия Чудиновича. Фонд помощи политзаключенным, партия ДЕЛ, криптовалюта CHUDO."/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none';"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>"/>
 <style>
-/* --- БАЗОВЫЕ НАСТРОЙКИ --- */
-:root {
-  --bg: #0b1120;
-  --bg-alt: #020617;
-  --fg: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #1d4ed8;
-  --accent-soft: #111827;
-  --border: #1f2937;
-  --card: #020617;
-  --danger: #dc2626;
-  --shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
-}
-:root[data-theme="light"] {
-  --bg: #f3f4f6;
-  --bg-alt: #fff;
-  --fg: #111827;
-  --muted: #6b7280;
-  --accent-soft: #e5e7eb;
-  --border: #d1d5db;
-  --card: #fff;
-  --shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
-}
-*, *::before, *::after { box-sizing: border-box; }
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--fg);
-  margin: 0;
-  padding-bottom: 150px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-a { text-decoration: none; color: inherit; cursor: pointer; }
+:root{--bg:#0b1120;--bg-alt:#020617;--fg:#e5e7eb;--muted:#9ca3af;--accent:#1d4ed8;--accent-soft:#111827;--border:#1f2937;--card:#020617;--danger:#dc2626;--shadow:0 18px 40px rgba(15,23,42,.75)}
+[data-theme="light"]{--bg:#f3f4f6;--bg-alt:#fff;--fg:#111827;--accent-soft:#e5e7eb;--border:#d1d5db;--card:#fff;--shadow:0 18px 40px rgba(15,23,42,.15)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;overflow-x:hidden;padding-bottom:150px;transition:background-color .5s,color .5s,border-color .5s}
+a{text-decoration:none;color:inherit}
 
-/* --- HERO АНИМАЦИЯ --- */
-.hero {
-  width: 100%; height: 45vh; min-height: 220px; max-height: 420px;
-  position: relative; overflow: hidden;
-  opacity: 0; transform: translateY(-10px);
-  animation: heroFadeIn .9s ease-out forwards;
-  border: 2px solid #000; background: #000;
-  z-index: 1;
-}
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.hero-stripes {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to bottom, #fff 0%, #fff 33.33%, #ff0000 33.33%, #ff0000 66.66%, #fff 66.66%, #fff 100%);
-  transform: rotateX(5deg); transform-origin: center bottom;
-  animation: stripes3D 6s infinite ease-in-out;
-  pointer-events: none;
-}
-@keyframes stripes3D {
-  0%, 100% { transform: rotateX(5deg) rotateY(0deg); }
-  25% { transform: rotateX(5deg) rotateY(2deg); }
-  50% { transform: rotateX(5deg) rotateY(0deg); }
-  75% { transform: rotateX(5deg) rotateY(-2deg); }
-}
-.hero-top-text {
-  position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
-  font-size: 1.8rem; font-weight: 700; text-align: center;
-  line-height: 1.2; color: #000;
-  text-shadow: 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(255, 255, 255, .5);
-  pointer-events: none; z-index: 5; white-space: nowrap;
-}
-.hero-top-text span { display: block; animation: topTextGlow 3s infinite alternate; }
-@keyframes topTextGlow {
-  0% { text-shadow: 0 0 8px rgba(255, 255, 255, .8), 0 0 16px rgba(255, 255, 255, .5); }
-  100% { text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 24px rgba(255, 255, 255, .7); }
-}
+/* Доступность фокуса */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
-/* --- БЕГУЩАЯ СТРОКА --- */
-.hero-marquee-wrapper {
-  position: absolute; bottom: 40px; width: 100%; overflow: hidden; pointer-events: none; z-index: 6;
-}
-.hero-text {
-  display: inline-block; white-space: nowrap;
-  font-size: 4.8rem; font-weight: 800; text-transform: uppercase;
-  color: #fff; line-height: .9;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
-  padding-left: 100%;
-  animation: marquee 20s linear infinite, textSparkle 3s infinite linear;
-}
-@keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
-@keyframes textSparkle {
-  0% { color: #fff; filter: hue-rotate(0deg) brightness(1); }
-  25% { color: #ff0000; filter: hue-rotate(90deg) brightness(1.2); }
-  50% { color: #0000ff; filter: hue-rotate(180deg) brightness(1.5); }
-  75% { color: #ff00ff; filter: hue-rotate(270deg) brightness(1.2); }
-  100% { color: #fff; filter: hue-rotate(360deg) brightness(1); }
-}
-@media (max-width: 768px) {
-  .hero-top-text { font-size: 1.3rem; top: 6%; }
-  .hero-text { font-size: 3.2rem; bottom: 30px; }
-}
+/* голограмма */
+@keyframes holo{0%{background-position:0%}100%{background-position:200%}}
+.holo-text{background:linear-gradient(90deg,#00f260,#0575e6,#f200cb,#00f260);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:holo 3s linear infinite;position:relative;overflow:hidden}
+.holo-text::after{content:'';position:absolute;top:0;left:0;width:80%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);animation:lightSweep 4s infinite linear}
+@keyframes lightSweep{0%{transform:translateX(-120%) skewX(-20deg);opacity:0}50%{opacity:1}100%{transform:translateX(120%) skewX(-20deg);opacity:0}}
 
-/* --- НАВИГАЦИЯ --- */
-.lang-bar {
-  background: var(--bg-alt); position: sticky; top: 0; z-index: 1000;
-  backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
-}
-.lang-bar-inner {
-  max-width: 1120px; margin: 0 auto; padding: .75rem 1rem;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.lang-group { display: flex; gap: .5rem; }
-.lang-group input { display: none; }
-.lang-group label {
-  padding: .5rem 1rem; border: 2px solid var(--border); border-radius: 999px;
-  cursor: pointer; font-size: .85rem; font-weight: 600;
-  background: var(--card); color: var(--muted); transition: 0.3s;
-}
-.lang-group input:checked + label {
-  background: var(--accent); border-color: var(--accent); color: #fff;
-  box-shadow: 0 0 15px rgba(29, 78, 216, .5);
-}
-.theme-toggle {
-  background: var(--card); border: 2px solid var(--border); border-radius: 999px;
-  padding: .4rem .8rem; cursor: pointer; min-width: 44px; font-size: 1.2rem;
-}
+/* печатающийся текст */
+@keyframes caret{0%,100%{border-color:transparent}50%{border-color:var(--accent)}}
+.type-cursor{border-inline-end:2px solid var(--accent);animation:caret .8s infinite}
 
-/* --- КАРТОЧКИ --- */
-.card-scroll {
-  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 1rem; max-width: 1120px; margin: 0 auto;
-}
-.info-card {
-  min-width: 320px; max-width: 380px; scroll-snap-align: start;
-  border: 1px solid var(--border); border-radius: 14px;
-  padding: 1.8rem; background: var(--card); box-shadow: var(--shadow);
-  transition: 0.3s;
-}
-.info-card:hover { transform: translateY(-6px); }
-.info-card h3 { margin: 0 0 1rem; color: var(--fg); border-bottom: 2px solid var(--accent); padding-bottom: .5rem; }
-.info-card p { color: var(--muted); font-size: 0.95rem; }
-.card-date {
-  display: inline-block; background: var(--accent-soft);
-  padding: .2rem .6rem; border-radius: 999px;
-  font-size: .8rem; margin-bottom: .8rem; color: var(--accent);
-}
+/* hero */
+.hero{width:100%;height:45vh;min-height:220px;max-height:420px;position:relative;overflow:hidden;opacity:0;transform:translateY(-10px);animation:heroFadeIn .9s ease-out forwards;border:2px solid #000;background:#000;z-index:1}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.hero-stripes{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,#fff 0%,#fff 33.33%,#ff0000 33.33%,#ff0000 66.66%,#fff 66.66%,#fff 100%);transform:rotateX(5deg);transform-origin:center bottom;animation:stripes3D 6s infinite ease-in-out;pointer-events:none}
+@keyframes stripes3D{0%,100%{transform:rotateX(5deg) rotateY(0)}25%{transform:rotateX(5deg) rotateY(2deg)}50%{transform:rotateX(5deg) rotateY(0)}75%{transform:rotateX(5deg) rotateY(-2deg)}}
+.hero-top-text{position:absolute;top:8%;left:50%;transform:translateX(-50%);width: 90%; max-width: 1000px; pointer-events:none;z-index:5; display: flex; justify-content: center; align-items: center;}
+.hero-top-wrapper { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.hero-name-span {font-size:1.8rem;font-weight:700;line-height:1.2;color:#000;text-shadow:0 0 8px rgba(255,255,255,.8),0 0 16px rgba(255,255,255,.5); white-space:nowrap;}
+.hero-name-span {display:block;animation:topTextGlow 3s infinite alternate}
 
-/* --- АНИМАЦИЯ 3D МОНЕТЫ --- */
-.coin-container {
-    width: 90px; height: 90px; margin: 0 auto 15px auto;
-    perspective: 1000px;
+/* СТИЛИ ДЛЯ КНОПКИ YOUTUBE */
+.yt-brand-btn {
+    pointer-events: auto;
+    background: #FF0000;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(255,0,0,0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid rgba(255,255,255,0.2);
 }
-.coin {
-    width: 100%; height: 100%; position: relative;
-    transform-style: preserve-3d;
-    animation: spinCoin 4s linear infinite;
+.yt-brand-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,0,0,0.9);
 }
-.coin-face {
-    position: absolute; width: 100%; height: 100%;
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 14px; color: #713f12;
-    background: radial-gradient(circle at 30% 30%, #fcd34d, #f59e0b);
-    border: 3px solid #b45309;
-    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
-    backface-visibility: hidden;
-}
-.front { transform: translateZ(5px); }
-.back { 
-    transform: rotateY(180deg) translateZ(5px); 
-    background: radial-gradient(circle at 30% 30%, #fbbf24, #d97706);
-    color: #451a03;
-}
-/* Анимация вращения */
-@keyframes spinCoin {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-}
+.yt-icon-svg { width: 24px; height: 24px; fill: #fff; }
 
-/* --- ФОТО КАРТОЧКА --- */
-.photo-card {
-  padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
-  min-height: 500px; border: none; position: relative;
-}
-.photo-card-bg {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: 1;
-}
-.photo-card-content {
-  position: relative; z-index: 10;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%);
-  padding: 2rem; color: #fff; text-align: center;
-}
-.photo-card-content h3 { color: #fff; border-bottom-color: rgba(255,255,255,0.5); }
+@keyframes topTextGlow{0%{text-shadow:0 0 8px rgba(255,255,255,.8),0 0 16px rgba(255,255,255,.5)}100%{text-shadow:0 0 12px rgba(255,255,255,1),0 0 24px rgba(255,255,255,.7)}}
+.hero-marquee-wrapper{position:absolute;bottom:40px;width:100%;overflow:hidden;pointer-events:none;z-index:6}
+.hero-text{display:inline-block;white-space:nowrap;font-size:4.8rem;font-weight:800;text-transform:uppercase;line-height:.9;padding-left:100%;animation:marquee 20s linear infinite,holoShift 3s infinite linear}
+@keyframes marquee{0%{transform:translate(0,0)}100%{transform:translate(-100%,0)}}
+@keyframes holoShift{0%{background-position:0%}100%{background-position:200%}}
+.noise-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-image:repeating-radial-gradient(#000 0 0.0001%,#fff 0 0.0002%);opacity:0.04;pointer-events:none;z-index:0}
+.hero-cursor-trail{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2}
 
-/* --- КНОПКИ --- */
-.btn-primary {
-  display: block; text-align: center; padding: .85rem; border-radius: 999px;
-  background: var(--accent); color: #fff; font-weight: 700; margin-top: 1rem; transition: 0.3s;
-  position: relative; z-index: 20; border: none;
+/* СТИЛИ ДЛЯ 3D МОНЕТ И ИКОНОК */
+.coin-container{width:90px;height:90px;margin:0 auto 15px auto;perspective:1000px}
+.coin{width:100%;height:100%;position:relative;transform-style:preserve-3d;animation:spinCoin 4s linear infinite;will-change:transform}
+.coin-face{position:absolute;width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#713f12;background:radial-gradient(circle at 30% 30%,#fcd34d,#f59e0b);border:3px solid #b45309;box-shadow:0 0 15px rgba(251,191,36,.5);backface-visibility:hidden}
+.back {
+  transform: rotateY(180deg) translateZ(5px);
+  background: radial-gradient(circle at 30% 30%, #f3f4f6, #9ca3af);
+  color: #374151;
+  border-color: #9ca3af;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
-.btn-primary:hover { transform: scale(1.02); background: #1e40af; }
-.photo-btn { background: #fff; color: #000; border: none; margin-top: 1rem; }
-.photo-btn:hover { background: var(--accent); color: #fff; }
-.btn-danger {
-  background: var(--danger); position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-  width: 92%; max-width: 480px; padding: 1rem; border-radius: 50px; text-align: center;
-  color: #fff; font-weight: bold; box-shadow: 0 8px 24px rgba(220, 38, 38, .55);
-  z-index: 9999; border: 2px solid rgba(255,255,255,0.2);
-}
-.btn-danger:hover { transform: translateX(-50%) scale(1.05); background: #b91c1c; }
+.front{transform:translateZ(5px)}
+@keyframes spinCoin{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
 
-/* --- ПЛАТЕЖИ --- */
-.payment-section {
-  max-width: 1120px; margin: 2rem auto; padding: 0 1rem;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;
-}
-.payment-card {
-  background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;
-  transition: 0.3s;
-}
-.payment-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-.bank-info {
-    font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.4;
-    border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem;
-}
-.copy-box {
-  display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05);
-  padding: 0.6rem; border-radius: 8px; font-family: monospace; font-size: 0.8rem; margin-top: 5px;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-.val { flex-grow: 1; word-break: break-all; color: var(--fg); }
-.copy-btn {
-  background: var(--accent); color: #fff; border: none; padding: 0.4rem 0.6rem;
-  border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.75rem; white-space: nowrap;
-}
-.net-badge {
-    display: inline-block; background: var(--danger); color: #fff; font-size: 0.7rem; 
-    padding: 2px 6px; border-radius: 4px; font-weight: bold; margin-left: 5px; vertical-align: middle;
-}
+.spin-fast { animation-duration: 3s !important; }
+.spin-medium { animation-duration: 5s !important; }
+.spin-slow { animation-duration: 6s !important; }
+.spin-slower { animation-duration: 8s !important; }
+.spin-super-slow { animation-duration: 9s !important; }
 
-/* --- ФУТЕР --- */
-.site-footer {
-  border-top: 1px solid var(--border); background: var(--bg-alt);
-  padding: 2rem 1rem 3rem; margin-top: 4rem;
-}
-.footer-inner {
-  max-width: 1120px; margin: 0 auto; display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
-}
-.footer-block h3 { margin-bottom: 1rem; color: var(--fg); border-bottom: 2px solid var(--accent); padding-bottom: .5rem; }
-.footer-block li { margin-bottom: 8px; color: var(--muted); list-style: none; }
-.footer-block a { color: var(--accent); position: relative; z-index: 10; }
+.coin-emoji { font-size: 2.5rem; }
 
-/* --- СОЦСЕТИ --- */
-.social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: .8rem; margin-top: .8rem; }
-.social-btn {
-  aspect-ratio: 1; border-radius: 16px; display: flex; align-items: center; justify-content: center;
-  transition: 0.3s; color: #fff; position: relative; z-index: 10;
-}
-.social-btn svg { pointer-events: none; }
-.social-btn:hover { transform: scale(1.1); filter: brightness(1.15); }
-.social-icon { width: 28px; height: 28px; fill: currentColor; }
-.social-tg { background: #229ED9; }
-.social-fb { background: #1877F2; }
-.social-yt { background: #FF0000; }
-.social-x { background: #000000; border: 1px solid #333; }
-.social-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-.social-tt { background: #000000; border: 1px solid #333; }
-.social-vk { background: #0077FF; }
+.tilt-card{transition:transform .3s ease;transform-style:preserve-3d}
+.tilt-card:hover{transform:perspective(1000px) rotateX(var(--ry,0)) rotateY(var(--rx,0)) scale(1.02)}
 
-.messenger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: .8rem; margin-top: .8rem; }
-.messenger-btn {
-  padding: .6rem; border-radius: 12px; background: var(--card); border: 1px solid var(--border);
-  color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 8px;
-  font-size: 0.9rem; transition: 0.3s; position: relative; z-index: 10;
+.lang-bar{background:var(--bg-alt);position:sticky;top:0;z-index:1000;backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.lang-bar-inner{max-width:1120px;margin:0 auto;padding:.75rem 1rem;display:flex;align-items:center;justify-content:flex-end;gap:1rem}
+.lang-globe{position:relative}
+.globe-btn{background:var(--card);border:2px solid var(--border);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;transition:.3s}
+.globe-btn:hover{border-color:var(--accent);transform:scale(1.1)}
+
+.globe-flags{
+    position:absolute;right:0;top:50px;background:var(--card);
+    border:1px solid var(--border);border-radius:12px;padding:.5rem;
+    display:none;grid-template-columns:repeat(3,1fr);gap:.4rem;
+    min-width:300px;box-shadow:var(--shadow);z-index:1001;
+    max-height: 60vh; overflow-y: auto;
 }
-.messenger-btn:hover { border-color: var(--accent); color: var(--accent); }
-.messenger-btn svg { width: 20px; height: 20px; fill: currentColor; pointer-events: none; }
+.globe-flags.show{display:grid}
+.flag-item{display:flex;align-items:center;gap:8px;padding:.5rem;border-radius:8px;cursor:pointer;transition:.2s;font-size:.8rem;color:var(--fg);text-decoration:none;}
+.flag-item:hover{background:var(--accent-soft);color:var(--accent)}
+.fi { width: 1.2em; height: 1em; background-size: cover; border-radius: 2px; }
+
+.theme-toggle{background:var(--card);border:2px solid var(--border);border-radius:999px;padding:.4rem .8rem;cursor:pointer;min-width:44px;font-size:1.2rem}
+.card-scroll{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1rem;max-width:1120px;margin:0 auto}
+.info-card{min-width:320px;max-width:380px;scroll-snap-align:start;border:1px solid var(--border);border-radius:14px;padding:1.8rem;background:var(--card);box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease; text-align: center;} 
+.info-card h3{margin:0 0 1rem;color:var(--fg);border-bottom:2px solid var(--accent);padding-bottom:.5rem; text-align: start;}
+.info-card p{color:var(--muted);font-size:.95rem; text-align: start;}
+.photo-card{padding:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:500px;border:none;position:relative}
+.photo-card-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.photo-card-content{position:relative;z-index:10;background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,0) 100%);padding:2rem;color:#fff;text-align:center}
+.photo-card h3 { text-align: center; }
+
+.btn-primary{display:block;text-align:center;padding:.85rem;border-radius:999px;background:var(--accent);color:#fff;font-weight:700;margin-top:1rem;transition:.3s;position:relative;z-index:20;border:none}
+.btn-primary:hover{transform:scale(1.02);background:#1e40af}
+.site-footer{border-top:1px solid var(--border);background:var(--bg-alt);padding:2rem 1rem 3rem;margin-top:4rem}
+.footer-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.footer-block h3{margin-bottom:1rem;color:var(--fg);border-bottom:2px solid var(--accent);padding-bottom:.5rem}
+.footer-block li{margin-bottom:8px;color:var(--muted);list-style:none}
+.footer-block a{color:var(--accent);transition:text-shadow .3s ease}
+.footer-block a:hover{text-shadow:0 0 10px var(--accent)}
+.social-grid{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+.social-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;transition:.3s;color:#fff;position:relative;z-index:10}
+.social-btn:hover{transform:scale(1.1);filter:brightness(1.15)}
+.social-icon{width:20px;height:20px;fill:currentColor}
+.social-yt{background:#FF0000}.social-tg{background:#229ED9}.social-fb{background:#1877F2}.social-x{background:#000;border:1px solid #333}.social-ig{background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)}
+.social-tt{background:#000000;border:1px solid #333;filter:drop-shadow(0 0 2px rgba(255,255,255,0.3))}
+
+.messenger-grid{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+.messenger-btn{padding:.5rem .7rem;border-radius:20px;background:var(--card);border:1px solid var(--border);color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px;font-size:.8rem;transition:.3s;position:relative;z-index:10}
+.messenger-btn:hover{border-color:var(--accent);color:var(--accent)}
+.messenger-btn svg{width:18px;height:18px;fill:currentColor;pointer-events:none}
+.seo-article{max-width:1120px;margin:3rem auto;padding:0 1rem;font-size:0.95rem;color:var(--muted);line-height:1.7}
+.payment-section{max-width:1120px;margin:3rem auto;padding:0 1rem;display:flex;flex-direction:column;gap:1.5rem}
+.payment-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:.3s}
+.payment-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.copy-box{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);padding:.6rem;border-radius:8px;font-family:monospace;font-size:.8rem;margin-top:5px;border:1px solid rgba(255,255,255,.05)}
+.val{flex-grow:1;word-break:break-all;color:var(--fg)}
+.copy-btn{background:var(--accent);color:#fff;border:none;padding:.4rem .6rem;border-radius:6px;cursor:pointer;font-weight:bold;font-size:.75rem;white-space:nowrap}
+/* RTL Fix: margin-left -> margin-inline-start */
+.net-badge{display:inline-block;background:var(--danger);color:#fff;font-size:.7rem;padding:2px 6px;border-radius:4px;font-weight:bold;margin-inline-start:5px;vertical-align:middle}
+.btn-danger{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:92%;max-width:480px;padding:1rem;border-radius:50px;background:var(--danger);color:#fff;font-weight:bold;box-shadow:0 8px 24px rgba(220,38,38,.55);z-index:9999;border:2px solid rgba(255,255,255,.2);animation:pulseBtn 2s infinite}
+@keyframes pulseBtn{0%{box-shadow:0 0 0 0 rgba(220,38,38,.4)}70%{box-shadow:0 0 0 12px rgba(220,38,38,0)}100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}}
+.btn-danger:hover{transform:translateX(-50%) scale(1.05);background:#b91c1c}
 </style>
 </head>
 
 <body>
-
-<header class="hero">
-  <div class="hero-stripes"></div>
+<div class="hero">
+  <div class="noise-bg"></div><div class="hero-stripes"></div>
   <div class="hero-top-text">
-    <span data-i18n="hero_name">ЧУДИНОВИЧ ЮРИЙ ЕВГЕНЬЕВИЧ</span>
+    <div class="hero-top-wrapper">
+        <span class="holo-text type-cursor hero-name-span" id="typeTitle" data-i18n="hero_name"></span>
+        <a href="https://www.youtube.com/channel/UCTXAwovvaec4w9ztbggWMEQ" target="_blank" rel="noopener noreferrer" class="yt-brand-btn">
+            <svg class="yt-icon-svg" viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            YouTube
+        </a>
+    </div>
   </div>
-  <div class="hero-marquee-wrapper">
-    <div class="hero-text" data-i18n="marquee">ФОНД ЧЕСТНЫЙ ПОЛИТЗЕК • ПОДДЕРЖКА • СОЛИДАРНОСТЬ • </div>
-  </div>
-</header>
+  <div class="hero-marquee-wrapper"><div class="hero-text holo-text" data-i18n="marquee">ФОНД ЧЕСТНЫЙ ПОЛИТЗЕК • ПОДДЕРЖКА • СОЛИДАРНОСТЬ • </div></div>
+  <div class="hero-cursor-trail" id="trail"></div>
+</div>
 
 <nav class="lang-bar">
   <div class="lang-bar-inner">
-    <form class="lang-group" id="langForm">
-      <input type="radio" name="lang" id="ru" value="ru" checked><label for="ru">🇷🇺 RU</label>
-      <input type="radio" name="lang" id="pl" value="pl"><label for="pl">🇵🇱 PL</label>
-      <input type="radio" name="lang" id="en" value="en"><label for="en">🇬🇧 EN</label>
-      <input type="radio" name="lang" id="be" value="be"><label for="be">🇧🇾 BE</label>
-    </form>
-    <button class="theme-toggle" id="themeToggle"><span id="themeIcon">☀️</span></button>
+    <div class="lang-globe">
+      <button class="globe-btn" id="globeBtn" type="button" aria-label="Сменить язык / Change Language">🌐</button>
+      <div class="globe-flags" id="globeFlags">
+        <a href="?lang=ru" class="flag-item" data-lang="ru"><span class="fi fi-ru"></span> Русский</a>
+        <a href="?lang=be" class="flag-item" data-lang="be"><span class="fi fi-by"></span> Беларуская</a>
+        <a href="?lang=en" class="flag-item" data-lang="en"><span class="fi fi-gb"></span> English</a>
+        <a href="?lang=pl" class="flag-item" data-lang="pl"><span class="fi fi-pl"></span> Polski</a>
+        <a href="?lang=uk" class="flag-item" data-lang="uk"><span class="fi fi-ua"></span> Українська</a>
+        <a href="?lang=fr" class="flag-item" data-lang="fr"><span class="fi fi-fr"></span> Français</a>
+        <a href="?lang=de" class="flag-item" data-lang="de"><span class="fi fi-de"></span> Deutsch</a>
+        <a href="?lang=es" class="flag-item" data-lang="es"><span class="fi fi-es"></span> Español</a>
+        <a href="?lang=it" class="flag-item" data-lang="it"><span class="fi fi-it"></span> Italiano</a>
+        <a href="?lang=ar" class="flag-item" data-lang="ar"><span class="fi fi-sa"></span> العربية</a>
+        <a href="?lang=zh" class="flag-item" data-lang="zh"><span class="fi fi-cn"></span> 简体中文</a>
+        <a href="?lang=da" class="flag-item" data-lang="da"><span class="fi fi-dk"></span> Dansk</a>
+        <a href="?lang=nl" class="flag-item" data-lang="nl"><span class="fi fi-nl"></span> Nederlands</a>
+        <a href="?lang=fi" class="flag-item" data-lang="fi"><span class="fi fi-fi"></span> Suomi</a>
+        <a href="?lang=hu" class="flag-item" data-lang="hu"><span class="fi fi-hu"></span> Magyar</a>
+        <a href="?lang=ja" class="flag-item" data-lang="ja"><span class="fi fi-jp"></span> 日本語</a>
+        <a href="?lang=ko" class="flag-item" data-lang="ko"><span class="fi fi-kr"></span> 한국어</a>
+        <a href="?lang=no" class="flag-item" data-lang="no"><span class="fi fi-no"></span> Norsk</a>
+        <a href="?lang=pt" class="flag-item" data-lang="pt"><span class="fi fi-pt"></span> Português</a>
+        <a href="?lang=sv" class="flag-item" data-lang="sv"><span class="fi fi-se"></span> Svenska</a>
+        <a href="?lang=am" class="flag-item" data-lang="am"><span class="fi fi-et"></span> አማርኛ</a>
+        <a href="?lang=my" class="flag-item" data-lang="my"><span class="fi fi-mm"></span> မြန်မာ</a>
+        <a href="?lang=prs" class="flag-item" data-lang="prs"><span class="fi fi-af"></span> دری</a>
+        <a href="?lang=el" class="flag-item" data-lang="el"><span class="fi fi-gr"></span> Ελληνικά</a>
+        <a href="?lang=ms" class="flag-item" data-lang="ms"><span class="fi fi-my"></span> Bahasa Melayu</a>
+        <a href="?lang=sw" class="flag-item" data-lang="sw"><span class="fi fi-ke"></span> Kiswahili</a>
+        <a href="?lang=th" class="flag-item" data-lang="th"><span class="fi fi-th"></span> ไทย</a>
+        <a href="?lang=tr" class="flag-item" data-lang="tr"><span class="fi fi-tr"></span> Türkçe</a>
+        <a href="?lang=vi" class="flag-item" data-lang="vi"><span class="fi fi-vn"></span> Tiếng Việt</a>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему / Toggle Theme"><span id="themeIcon">☀️</span></button>
   </div>
 </nav>
 
 <main>
   <section class="card-scroll" id="main">
-    
-    <article class="info-card photo-card">
-        <img src="1000023339.jpg" alt="Политик" class="photo-card-bg">
-        <div class="photo-card-content">
-            <h3 data-i18n="card_photo_title">Политик, общественный деятель</h3>
-            <a href="https://t.me/+48795972990" target="_blank" class="btn-primary photo-btn" data-i18n="card_photo_button">Связаться со мной</a>
-        </div>
-    </article>
-
-    <article class="info-card photo-card">
-      <img src="1000024262.png" alt="Smart Contract" class="photo-card-bg">
+    <article class="info-card tilt-card photo-card">
+      <img src="https://i.ibb.co/4W5tPqY/1000023339.jpg" alt="Юрий Чудинович" class="photo-card-bg" loading="lazy" decoding="async" width="380" height="500">
       <div class="photo-card-content">
-        <h3 data-i18n="card_crypto_title">Смарт-контракт CHUDO</h3>
+        <h3 class="holo-text" data-i18n="card_photo_title">Политик, общественный деятель</h3>
+        <a href="https://t.me/+48795972990" target="_blank" rel="noopener noreferrer" class="btn-primary photo-btn" data-i18n="card_photo_button">Связаться со мной</a>
       </div>
     </article>
 
-    <article class="info-card">
-      <h3 data-i18n="card1_title">Юрий Чудинович</h3>
-      <span class="card-date">22.06.2021</span>
-      <p data-i18n="card1_text">Белорусский общественный активист и предприниматель из Барановичей. Задержан 22 июня 2021 года.</p>
-    </article>
-
-    <article class="info-card">
-      <h3 data-i18n="card2_title">Партия «ДЕЛ»</h3>
-      <p data-i18n="card2_text">Основана и учреждена Юрием Евгеньевичем Чудиновичем в ИВС города Барановичи.</p>
-    </article>
-
-    <article class="info-card" style="text-align:center;">
+    <article class="info-card tilt-card">
       <div class="coin-container">
-          <div class="coin">
-              <div class="coin-face front">CHUDO</div>
-              <div class="coin-face back">KRC20</div>
-          </div>
+        <div class="coin spin-fast">
+          <div class="coin-face front coin-emoji">❤️</div>
+          <div class="coin-face back coin-emoji">❤️</div>
+        </div>
       </div>
-      <h3 data-i18n="card3_title">Криптовалюта CHUDO</h3>
-      <span class="card-date">16.12.2025</span>
-      <p data-i18n="card3_text">Токен стандарта KRC-20 в сети Kaspa. Первый блок зафиксирован в блокчейне 16 декабря 2025 года.</p>
+      <h3 class="holo-text" data-i18n="card1_title">Юрий Чудинович</h3>
+      <span class="card-date">22.06.2021</span>
+      <p data-i18n="card1_text">Белорусский общественный активист, предприниматель и блогер из Барановичей. Автор канала «Точка невозврата». Осужден режимом на 4 года за правду. Символ несокрушимой воли.</p>
     </article>
 
-    <article class="info-card">
-      <h3 data-i18n="card4_title">Фонд «Честный политзек»</h3>
-      <p data-i18n="card4_text">Учреждён на собрании 16 декабря 2025 года. Оказывает помощь политзаключённым и их семьям.</p>
-      <a href="https://zrzutka.pl/komitet-solidarnosci-represjonowanych" target="_blank" class="btn-primary" data-i18n="card4_button">Поддержать фонд</a>
+    <article class="info-card tilt-card">
+      <div class="coin-container">
+        <div class="coin spin-slow">
+          <div class="coin-face front coin-emoji">⚙️</div>
+          <div class="coin-face back coin-emoji">⚙️</div>
+        </div>
+      </div>
+      <h3 class="holo-text" data-i18n="card2_title">Партия «ДЕЛ»</h3>
+      <p data-i18n="card2_text">Политическая сила нового времени, основанная Юрием Чудиновичем в ИВС. Мы выступаем за полную смену системы, возврат к Конституции 1994 года, свободную экономику и экологическую безопасность.</p>
+    </article>
+
+    <article class="info-card tilt-card">
+      <div class="coin-container">
+        <div class="coin spin-medium">
+          <div class="coin-face front coin-emoji">🛡️</div>
+          <div class="coin-face back coin-emoji">🛡️</div>
+        </div>
+      </div>
+      <h3 class="holo-text" data-i18n="card4_title">Фонд «Честный политзек»</h3>
+      <p data-i18n="card4_text">Наша миссия — чтобы ни один политзаключенный не остался один на один с бедой. Мы учреждены 16.12.2025 для оплаты адвокатов, сбора передач и поддержки семей репрессированных героев.</p>
+      <a href="https://zrzutka.pl/komitet-solidarnosci-represjonowanych" target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="card4_button">Поддержать фонд</a>
+    </article>
+
+    <article class="info-card tilt-card">
+      <div class="coin-container">
+        <div class="coin spin-medium">
+          <div class="coin-face front coin-emoji">🤝</div>
+          <div class="coin-face back coin-emoji">🤝</div>
+        </div>
+      </div>
+      <h3 class="holo-text" data-i18n="card_committee_title">Комитет солидарности репрессированных</h3>
+      <span class="card-date">16.12.2025</span>
+      <p data-i18n="card_committee_text">Глобальная сеть солидарности. Мы объединяем диаспоры, политиков и активистов по всему миру для международного давления на режим и освобождения всех незаконно осужденных граждан Беларуси.</p>
+    </article>
+
+    <article class="info-card tilt-card" style="text-align:center;">
+      <div class="coin-container">
+        <div class="coin">
+          <div class="coin-face front">CHUDO</div>
+          <div class="coin-face back">KRC20</div>
+        </div>
+      </div>
+      <h3 class="holo-text" data-i18n="card3_title">Криптовалюта CHUDO</h3>
+      <span class="card-date">16.12.2025</span>
+      <p data-i18n="card3_text">CHUDO (KRC-20) — это не просто токен в сети Kaspa. Это инструмент финансовой свободы, неподвластный санкциям и блокировкам. Валюта солидарности и поддержки демократического будущего.</p>
+    </article>
+
+    <article class="info-card tilt-card">
+       <div class="coin-container">
+        <div class="coin spin-slower">
+          <div class="coin-face front coin-emoji">📜</div>
+          <div class="coin-face back coin-emoji">📜</div>
+        </div>
+      </div>
+      <h3 class="holo-text" data-i18n="card_contract_title">Смарт-контракт CHUDO</h3>
+      <pre style="font-size:.7rem;background:rgba(255,255,255,.05);padding:.5rem;border-radius:6px;overflow:auto;text-align:left;direction:ltr;">
+Transfer
+Tick: CHUDO
+Amount: 1,000
+From: kaspa:qpg0zyjk...500wwkau
+To: kaspa:qzjf2nf0...dz0red2c
+Protocol: KRC-20
+OP: transfer
+OP Score: 3050023200000
+Reveal Fee: 0 KAS
+TX State: Confirmed
+OP Created at: 16.12.2025, 22:17:44
+      </pre>
+    </article>
+
+    <article class="info-card tilt-card">
+      <div class="coin-container">
+        <div class="coin spin-super-slow">
+          <div class="coin-face front coin-emoji">⚖️</div>
+          <div class="coin-face back coin-emoji">⚖️</div>
+        </div>
+      </div>
+      <h3 class="holo-text" data-i18n="card_demo_title">Демократические силы Беларуси</h3>
+      <span class="card-date">16.12.2025</span>
+      <p data-i18n="card_demo_text">Консолидация всех здоровых сил общества. Правозащитная организация, созданная для защиты прав человека, разработки реформ и подготовки кадрового резерва новой свободной страны.</p>
     </article>
   </section>
 
-  <div class="payment-section">
-      <div class="payment-card">
-          <h3 style="color:var(--accent)">PKO Bank Polski (PLN/EUR)</h3>
-          <div class="bank-info">
-              <div>Card: <strong>4251 2513 6480 1214</strong> (до 11/30)</div>
-              <div>SWIFT: <strong>BPKOPLPW</strong></div>
-          </div>
-          <div style="margin-bottom:5px">
-              <span style="font-size:0.7rem; color:var(--muted)">IBAN (PL)</span>
-              <div class="copy-box"><span class="val" id="iban_pl">PL98 1020 1185 0000 4502 0419 7976</span><button class="copy-btn" data-target="iban_pl">Copy</button></div>
-          </div>
+  <section class="seo-article">
+    <h2 class="holo-text" style="margin-bottom:1rem;font-size:1.4rem;" data-i18n="seo_title">Юрий Чудинович: История борьбы и путь к свободе</h2>
+    <div data-i18n="seo_text">
       </div>
+  </section>
 
-      <div class="payment-card">
-          <h3 style="color:var(--accent)">Revolut (Multicurrency)</h3>
-          <div class="bank-info">
-              <div>Card: <strong>4165 9871 1998 8302</strong> (до 10/30)</div>
-              <div>SWIFT: <strong>REVOLT21</strong> | Corr: <strong>CHASDEFX</strong></div>
-              <div style="font-size:0.75rem; margin-top:3px">Revolut Bank UAB, Konstitucijos ave. 21B, Vilnius</div>
-          </div>
-          <div style="margin-bottom:5px">
-              <span style="font-size:0.7rem; color:var(--muted)">IBAN (International)</span>
-              <div class="copy-box"><span class="val" id="iban_rev">LT81 3250 0653 6173 6755</span><button class="copy-btn" data-target="iban_rev">Copy</button></div>
-          </div>
+  <section class="payment-section">
+    <div class="payment-card">
+      <h3 style="color:var(--accent)">PKO Bank Polski (PLN/EUR)</h3>
+      <div>Card: <strong>4251 2513 6480 1214</strong> (до 11/30)</div>
+      <div>SWIFT: <strong>BPKOPLPW</strong></div>
+      <div style="margin-bottom:5px">
+        <span style="font-size:.7rem;color:var(--muted)">IBAN (PL)</span>
+        <div class="copy-box"><span class="val" id="iban_pl">PL98 1020 1185 0000 4502 0419 7976</span><button class="copy-btn" data-target="iban_pl">Copy</button></div>
       </div>
+    </div>
 
-      <div class="payment-card">
-          <h3 style="color:var(--accent)">Криптовалюта</h3>
-          <p style="font-size:0.8rem; color:var(--danger); margin-bottom:10px;">⚠️ Внимание! Переводите только в указанной сети!</p>
-          
-          <div style="margin-bottom:10px">
-              <span style="font-size:0.75rem; color:var(--muted)">Bitcoin <span class="net-badge">BTC Network</span></span>
-              <div class="copy-box"><span class="val" id="btc">bc1qp3gzyyknnlzcfll6yks4lezjfdaustan6w64e9</span><button class="copy-btn" data-target="btc">Copy</button></div>
-          </div>
-          <div style="margin-bottom:10px">
-              <span style="font-size:0.75rem; color:var(--muted)">USDT <span class="net-badge">TRC-20 (Tron)</span></span>
-              <div class="copy-box"><span class="val" id="usdt">TQMo2KNXE8n961ddNFfJdcH4ZixVmMeU8U</span><button class="copy-btn" data-target="usdt">Copy</button></div>
-          </div>
-          <div style="margin-bottom:10px">
-              <span style="font-size:0.75rem; color:var(--muted)">USDC <span class="net-badge">Solana</span></span>
-              <div class="copy-box"><span class="val" id="usdc">FKyHQKi7st4SWQQoKoEJ4zSSyX54AFcnykEHwPjAqYNJ</span><button class="copy-btn" data-target="usdc">Copy</button></div>
-          </div>
-          <div>
-              <span style="font-size:0.75rem; color:var(--muted)">ETH <span class="net-badge">Arbitrum</span></span>
-              <div class="copy-box"><span class="val" id="eth">0xb6fd3908EB2BC7a428Aa905dC7Dab42884AEf320</span><button class="copy-btn" data-target="eth">Copy</button></div>
-          </div>
+    <div class="payment-card">
+      <h3 style="color:var(--accent)">Revolut (Multicurrency)</h3>
+      <div>Card: <strong>4165 9871 1998 8302</strong> (до 10/30)</div>
+      <div>SWIFT: <strong>REVOLT21</strong> | Corr: <strong>CHASDEFX</strong></div>
+      <div style="font-size:.75rem;margin-top:3px">Revolut Bank UAB, Konstitucijos ave. 21B, Vilnius</div>
+      <div style="margin-bottom:5px">
+        <span style="font-size:.7rem;color:var(--muted)">IBAN (International)</span>
+        <div class="copy-box"><span class="val" id="iban_rev">LT81 3250 0653 6173 6755</span><button class="copy-btn" data-target="iban_rev">Copy</button></div>
       </div>
-  </div>
+    </div>
+
+    <div class="payment-card">
+      <h3 style="color:var(--accent)">Криптовалюта</h3>
+      <p style="font-size:.8rem;color:var(--danger);margin-bottom:10px;">⚠️ Переводите только в указанной сети!</p>
+      <div style="margin-bottom:10px">
+        <span style="font-size:.75rem;color:var(--muted)">Bitcoin <span class="net-badge">BTC Network</span></span>
+        <div class="copy-box"><span class="val" id="btc">bc1qp3gzyyknnlzcfll6yks4lezjfdaustan6w64e9</span><button class="copy-btn" data-target="btc">Copy</button></div>
+      </div>
+      <div style="margin-bottom:10px">
+        <span style="font-size:.75rem;color:var(--muted)">USDT <span class="net-badge">TRC-20 (Tron)</span></span>
+        <div class="copy-box"><span class="val" id="usdt">TQMo2KNXE8n961ddNFfJdcH4ZixVmMeU8U</span><button class="copy-btn" data-target="usdt">Copy</button></div>
+      </div>
+      <div style="margin-bottom:10px">
+        <span style="font-size:.75rem;color:var(--muted)">USDC <span class="net-badge">Solana</span></span>
+        <div class="copy-box"><span class="val" id="usdc">FKyHQKi7st4SWQQoKoEJ4zSSyX54AFcnykEHwPjAqYNJ</span><button class="copy-btn" data-target="usdc">Copy</button></div>
+      </div>
+      <div>
+        <span style="font-size:.75rem;color:var(--muted)">ETH <span class="net-badge">Arbitrum</span></span>
+        <div class="copy-box"><span class="val" id="eth">0xb6fd3908EB2BC7a428Aa905dC7Dab42884AEf320</span><button class="copy-btn" data-target="eth">Copy</button></div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<a href="https://zrzutka.pl/komitet-solidarnosci-represjonowanych" target="_blank" class="btn-danger" data-i18n="support_button">Поддержать сейчас</a>
+<a href="https://zrzutka.pl/komitet-solidarnosci-represjonowanych" target="_blank" rel="noopener noreferrer" class="btn-danger" data-i18n="support_button">Поддержать сейчас</a>
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-block">
-      <h3 data-i18n="footer_title1">Юрий Чудинович</h3>
+      <h3 class="holo-text" data-i18n="footer_title1">Юрий Чудинович</h3>
       <ul>
         <li><strong data-i18n="footer_address">Адрес:</strong> Польша, Варшава, ul. Lokcowa 12</li>
         <li><strong>Email:</strong> <a href="mailto:6900908@gmail.com">6900908@gmail.com</a></li>
+        <li><strong>Телефон:</strong> <a href="tel:+48795972990">+48795972990</a></li>
         <li><strong data-i18n="footer_status">Статус:</strong> Политзаключённый</li>
       </ul>
     </div>
     <div class="footer-block">
-      <h3 data-i18n="footer_title3">Соцсети</h3>
+      <h3 class="holo-text" data-i18n="footer_title3">Соцсети</h3>
       <div class="social-grid">
-        <a href="https://youtube.com/@ЧУДИНОВИЧ-ЮРА" target="_blank" class="social-btn social-yt">
-            <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-        <a href="https://t.me/Z690001" target="_blank" class="social-btn social-tg">
-            <svg class="social-icon" viewBox="0 0 24 24"><path d="M11.944 0C5.347 0 0 5.347 0 11.944c0 6.597 5.347 11.944 11.944 11.944 6.597 0 11.944-5.347 11.944-11.944C23.888 5.347 18.541 0 11.944 0zm5.204 8.12l-1.764 8.312c-.133.593-.483.738-.982.458l-2.686-1.98-1.296 1.246c-.144.144-.264.264-.54.264l.192-2.73 4.968-4.488c.216-.192-.048-.3-.336-.108L8.568 12.44 5.916 11.61c-.576-.18-.588-.576.12-.852l10.38-4.008c.48-.18.9.108.732.372z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/share/1bJi1GCA85/" target="_blank" class="social-btn social-fb">
-            <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        </a>
-        <a href="https://x.com/CHUDZINOVICH1" target="_blank" class="social-btn social-x">
-             <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/Chudzinovichyury" target="_blank" class="social-btn social-ig">
-             <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-        <a href="https://tiktok.com/@chudzinovich" target="_blank" class="social-btn social-tt">
-             <svg class="social-icon" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v6.14c0 3.48-2.32 5.79-5.49 6.31-3.23.54-6.58-1.24-7.85-4.23-1.25-2.95.27-6.28 3.14-7.56 1.43-.63 3.07-.63 4.5.01v4.06c-.83-.49-1.85-.59-2.74-.25-.89.34-1.52 1.11-1.67 2.06-.15.95.27 1.91 1.05 2.44.79.54 1.83.56 2.64.07.78-.47 1.25-1.32 1.24-2.23V.02z"/></svg>
-        </a>
-        <a href="https://vk.com/id1045369290" target="_blank" class="social-btn social-vk">
-             <svg class="social-icon" viewBox="0 0 24 24"><path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.918.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 .758-.85.054-1.551-3.085-3.075-1.592-3.477.516-6.443 1.052-1.48 1.574-2.274 1.34-2.923-.231-.645-1.545-.733-1.545-.733H20.07c-.496 0-.825.187-1.117.703 0 0-2.43 4.794-5.388 5.097-.478.05-.681-.225-.681-.868V9.114c0-2.613.627-3.136-1.353-3.284-1.564-.117-2.618.067-3.359.539-.511.326-.062.868.272 1.12 1.042.784 1.011 2.454 1.011 2.454s-.043 4.558-1.243 5.228c-1.312.733-4.148-3.666-5.833-7.542-.239-.548-.522-.841-1.192-.841H2.889c-.66 0-.792.342-.792.684 0 .708 2.071 9.457 9.617 10.654.516.082 1.448-.132 1.448-.132z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="footer-block">
-      <h3 data-i18n="footer_title4">Мессенджеры</h3>
-      <div class="messenger-grid">
-        <a href="https://wa.me/48795972990" target="_blank" class="messenger-btn">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-          WhatsApp
-        </a>
-        <a href="https://t.me/+48795972990" target="_blank" class="messenger-btn">
-          <svg viewBox="0 0 24 24"><path d="M11.944 0C5.347 0 0 5.347 0 11.944c0 6.597 5.347 11.944 11.944 11.944 6.597 0 11.944-5.347 11.944-11.944C23.888 5.347 18.541 0 11.944 0zm5.204 8.12l-1.764 8.312c-.133.593-.483.738-.982.458l-2.686-1.98-1.296 1.246c-.144.144-.264.264-.54.264l.192-2.73 4.968-4.488c.216-.192-.048-.3-.336-.108L8.568 12.44 5.916 11.61c-.576-.18-.588-.576.12-.852l10.38-4.008c.48-.18.9.108.732.372z"/></svg>
-          Telegram
-        </a>
-        <a href="viber://chat?number=%2B48795972990" target="_blank" class="messenger-btn">
-          <svg viewBox="0 0 24 24"><path d="M21.514 15.356c-.573.491-1.385.586-2.072.261-.31-.148-2.618-1.31-4.05-2.766-1.503-1.527-2.617-3.84-2.756-4.135-.295-.623-.195-1.36.216-1.916l1.378-1.859c.262-.353.303-.808.106-1.203l-2.115-4.24c-.234-.47-.755-.694-1.238-.544L8.74 1.13c-2.321.72-3.805 2.76-3.805 5.23 0 7.854 6.273 14.238 13.996 14.238 2.304 0 4.256-1.42 4.965-3.64l.21-1.815c.162-.51-.048-1.077-.492-1.341l-2.1-1.446z"/></svg>
-          Viber
-        </a>
-        <a href="https://signal.me/#eu/XPsDuUfuqaGEhDnm0PqwSqDg89ft7TGGfRXE0Zt0EQkVb1vlPi9FQpHt2Fe8JBb3" target="_blank" class="messenger-btn">
-          <svg viewBox="0 0 24 24"><path d="M11.96 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.6 17.5c-.88 0-1.6-.72-1.6-1.6 0-.3.12-.72.48-1.2l.48-.6c.24-.3.48-.6.48-.9 0-.42-.36-.72-.78-.72-.42 0-.78.3-.78.78 0 .42-.12.84-.42 1.2-.24.3-.66.42-1.02.42-.42 0-.78-.36-.78-.78 0-1.2 1.02-2.16 2.58-2.16.88 0 1.6.72 1.6 1.6 0 .3-.12.72-.48 1.2l-.48.6c-.24.3-.48.6-.48.9 0 .42.36.72.78.72.42 0 .78-.3.78-.78 0-.42.12-.84.42-1.2.24-.3.66-.42 1.02-.42.42 0 .78.36.78.78 0 1.2-1.02 2.16-2.58 2.16zm5.82-.48c-.42.42-.96.6-1.56.48-1.02-.24-1.68-1.2-1.62-2.34.06-1.14.78-2.04 1.8-2.28.6-.12 1.14.06 1.56.48.42.42.6 1.02.48 1.62-.12.6-.48 1.08-.9 1.5l.36.36c.18.18.36.3.3.6-.06.24-.24.42-.48.48zm2.46-.36c-.42.36-.96.48-1.5.3-1.02-.3-1.56-1.32-1.38-2.46.18-1.14 1.02-1.92 2.04-2.04.54-.06 1.08.18 1.44.6.36.42.48 1.02.3 1.62-.18.6-.6 1.02-1.02 1.38l.3.36c.18.18.36.3.3.6 0 .24-.18.42-.42.54z"/></svg>
-          Signal
+        <a href="https://www.youtube.com/channel/UCTXAwovvaec4w9ztbggWMEQ" target="_blank" rel="noopener noreferrer" class="social-btn social-yt" aria-label="YouTube"><svg class="social-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="https://t.me/+48795972990" target="_blank" rel="noopener noreferrer" class="social-btn social-tg" aria-label="Telegram"><svg class="social-icon" viewBox="0 0 24 24"><path d="M11.944 0C5.347 0 0 5.347 0 11.944c0 6.597 5.347 11.944 11.944 11.944 6.597 0 11.944-5.347 11.944-11.944C23.888 5.347 18.541 0 11.944 0zm5.204 8.12l-1.764 8.312c-.133.593-.483.738-.982.458l-2.686-1.98-1.296 1.246c-.144.144-.264.264-.54.264l.192-2.73 4.968-4.488c.216-.192-.048-.3-.336-.108L8.568 12.44 5.916 11.61c-.576-.18-.588-.576.12-.852l10.38-4.008c.48-.18.9.108.732.372z"/></svg></a>
+        <a href="https://www.facebook.com/share/1bJi1GCA85/" target="_blank" rel="noopener noreferrer" class="social-btn social-fb" aria-label="Facebook"><svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://x.com/CHUDZINOVICH1" target="_blank" rel="noopener noreferrer" class="social-btn social-x" aria-label="X (Twitter)"><svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.instagram.com/chudzinovichyury" target="_blank" rel="noopener noreferrer" class="social-btn social-ig" aria-label="Instagram"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        <a href="https://tiktok.com/@chudzinovich" target="_blank" rel="noopener noreferrer" class="social-btn social-tt" aria-label="TikTok">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
         </a>
       </div>
     </div>
   </div>
-  <p style="text-align:center; margin-top:2rem; color:var(--muted); font-size:0.8rem;">© 2025 ЧЕСТНЫЙ ПОЛИТЗЕК</p>
+  <p style="text-align:center;margin-top:2rem;color:var(--muted);font-size:.8rem">© 2025 <span data-i18n="marquee">ЧЕСТНЫЙ ПОЛИТЗЕК</span></p>
 </footer>
 
 <script>
-document.documentElement.classList.remove('no-js');
+const typeWriter=(el,text,sp=65)=>{
+  el.textContent='';let i=0;
+  (function t(){
+    if(i<text.length){el.textContent+=text.charAt(i++);setTimeout(t,sp);}
+  })();
+};
+
+// Исправлена логика инициализации (убрано двоение текста)
+window.addEventListener('load',()=>{
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang');
+  const userLang = langParam || navigator.language.slice(0, 2) || 'ru';
+  
+  // 1. Сначала применяем язык (заполняем все поля, включая заголовок)
+  applyLang(userLang);
+
+  // 2. Затем берем текст из заголовка, очищаем его и запускаем печать
+  const ttl=document.getElementById('typeTitle');
+  if(ttl){
+    const textToType = ttl.textContent; // Сохраняем правильный перевод
+    ttl.textContent = '';               // Очищаем, чтобы не было дубля
+    ttl.classList.add('type-cursor');
+    typeWriter(ttl, textToType, 90);    // Печатаем
+  }
+});
 
 const translations = {
+  // --- 1. Русский ---
   ru: {
-    hero_name: "ЧУДИНОВИЧ ЮРИЙ ЕВГЕНЬЕВИЧ",
+    meta_title: "Фонд ЧЕСТНЫЙ ПОЛИТЗЕК | Юрий Чудинович",
+    meta_desc: "Официальный сайт Юрия Чудиновича. Фонд помощи политзаключенным, партия ДЕЛ, криптовалюта CHUDO.",
+    hero_name: "Чудзинович Юрий Евгеньевич",
     marquee: "ФОНД ЧЕСТНЫЙ ПОЛИТЗЕК • ПОДДЕРЖКА • СОЛИДАРНОСТЬ • ",
     card_photo_title: "Политик, общественный деятель",
     card_photo_button: "Связаться со мной",
-    card_crypto_title: "Смарт-контракт CHUDO",
+    // Обновленные тексты для карточек
     card1_title: "Юрий Чудинович",
-    card1_text: "Белорусский общественный активист и предприниматель из Барановичей. Задержан 22 июня 2021 года. Осуждён, отбывал наказание в ИК-17 (Шклов), переведён в тюрьму №8 Жодино.",
+    card1_text: "Белорусский общественный активист, предприниматель и блогер из Барановичей. Автор канала «Точка невозврата». Осужден режимом на 4 года за правду. Символ несокрушимой воли.",
     card2_title: "Партия «ДЕЛ»",
-    card2_text: "Основана и учреждена Юрием Евгеньевичем Чудиновичем в ИВС города Барановичи. Политическая организация, выступающая за демократические реформы.",
+    card2_text: "Политическая сила нового времени, основанная Юрием Чудиновичем в ИВС. Мы выступаем за полную смену системы, возврат к Конституции 1994 года, свободную экономику и экологическую безопасность.",
     card3_title: "Криптовалюта CHUDO",
-    card3_text: "Токен стандарта KRC-20 в сети Kaspa. Первый блок зафиксирован в блокчейне 16 декабря 2025 года.",
+    card3_text: "CHUDO (KRC-20) — это не просто токен в сети Kaspa. Это инструмент финансовой свободы, неподвластный санкциям и блокировкам. Валюта солидарности и поддержки демократического будущего.",
     card4_title: "Фонд «Честный политзек»",
-    card4_text: "Учреждён на собрании 16 декабря 2025 года. Адрес: Польша, Варшава, ul. Lokcowa 12. Оказывает помощь политзаключённым, их семьям и жертвам репрессий.",
+    card4_text: "Наша миссия — чтобы ни один политзаключенный не остался один на один с бедой. Мы учреждены 16.12.2025 для оплаты адвокатов, сбора передач и поддержки семей репрессированных героев.",
+    card_committee_title: "Комитет солидарности репрессированных",
+    card_committee_text: "Глобальная сеть солидарности. Мы объединяем диаспоры, политиков и активистов по всему миру для международного давления на режим и освобождения всех незаконно осужденных граждан Беларуси.",
+    card_contract_title: "Смарт-контракт CHUDO",
+    card_demo_title: "Демократические силы Беларуси",
+    card_demo_text: "Консолидация всех здоровых сил общества. Правозащитная организация, созданная для защиты прав человека, разработки реформ и подготовки кадрового резерва новой свободной страны.",
     card4_button: "Поддержать фонд",
     support_button: "Поддержать сейчас",
     footer_title1: "Юрий Чудинович",
     footer_address: "Адрес:",
     footer_status: "Статус:",
     footer_title3: "Соцсети",
-    footer_title4: "Мессенджеры"
+    footer_title4: "Мессенджеры",
+    seo_title: "Юрий Чудинович: История борьбы и путь к свободе",
+    seo_text: "<p><strong>Юрий Евгеньевич Чудинович (Чудзіновіч Юрый Яўгенавіч)</strong> — известная фигура белорусского сопротивления, политический заключённый, предприниматель и общественный деятель из города Барановичи.</p><br><p><strong>Политическая активность и арест:</strong> В 2020 году Юрий стал голосом протеста, создав YouTube-канал «Точка невозврата», где открыто критиковал диктатуру Лукашенко. 22 июня 2021 года был арестован и осужден на 4 года лишения свободы.</p><br><p><strong>Новый этап борьбы (2025):</strong> После освобождения и эмиграции в Варшаву, Юрий основал партию <strong>«ДЕЛ» (Демократические Единые Люди)</strong> и фонд <strong>«Честный политзек»</strong> для помощи пострадавшим от репрессий.</p><br><p><strong>Инновации:</strong> Запущен криптовалютный токен <strong>CHUDO</strong> на блокчейне Kaspa (KRC-20) для создания независимой финансовой экосистемы поддержки.</p>"
   },
-  pl: {
-    hero_name: "JURIJ CZUDINOWICZ",
-    marquee: "FUNDUSZ UCZCIWY WIĘZIEŃ POLITYCZNY • WSPARCIE • SOLIDARNOŚĆ • ",
-    card_photo_title: "Polityk, działacz społeczny",
-    card_photo_button: "Skontaktuj się ze mną",
-    card_crypto_title: "Smart kontrakt CHUDO",
-    card1_title: "Jurij Czudinowicz",
-    card1_text: "Białoruski działacz społeczny i przedsiębiorca z Baranowicz. Zatrzymany 22 czerwca 2021.",
-    card2_title: "Partia «DEL»",
-    card2_text: "Założona przez Jurija Czudinowicza w IWS w Baranowiczach. Organizacja polityczna występująca za reformami demokratycznymi.",
-    card3_title: "Kryptowaluta CHUDO",
-    card3_text: "Token standardu KRC-20 w sieci Kaspa. Pierwszy blok zapisany w blockchain 16 grudnia 2025.",
-    card4_title: "Fundusz «Uczciwy więzień polityczny»",
-    card4_text: "Adres: Polska, Warszawa, ul. Lokcowa 12. Udziela pomocy więźniom politycznym.",
-    card4_button: "Wesprzyj fundusz",
-    support_button: "Wesprzyj teraz",
-    footer_title1: "Jurij Czudinowicz",
-    footer_address: "Adres:",
-    footer_status: "Status:",
-    footer_title3: "Media społecznościowe",
-    footer_title4: "Messengerzy"
-  },
-  en: {
-    hero_name: "YURY CHUDZINOVICH",
-    marquee: "HONEST POLITICAL PRISONER FUND • SUPPORT • SOLIDARITY • ",
-    card_photo_title: "Politician, Public Figure",
-    card_photo_button: "Contact Me",
-    card_crypto_title: "Smart Contract CHUDO",
-    card1_title: "Yury Chudzinvich",
-    card1_text: "Belarusian social activist and entrepreneur from Baranovichi. Arrested on June 22, 2021.",
-    card2_title: "Party «DEL»",
-    card2_text: "Founded by Yuri Chudinovich. A political organization advocating for democratic reforms.",
-    card3_title: "Cryptocurrency CHUDO",
-    card3_text: "KRC-20 token on the Kaspa network. First block recorded on December 16, 2025.",
-    card4_title: "Fund «Honest Political Prisoner»",
-    card4_text: "Address: Poland, Warsaw, ul. Lokcowa 12. Provides assistance to political prisoners.",
-    card4_button: "Support the Fund",
-    support_button: "Support Now",
-    footer_title1: "Yury Chudzinvich",
-    footer_address: "Address:",
-    footer_status: "Status:",
-    footer_title3: "Social Media",
-    footer_title4: "Messengers"
-  },
+  // --- 2. Беларуская ---
   be: {
-    hero_name: "ЮРЫЙ ЧУДЗІНОВІЧ",
-    marquee: "ФОНД ЧЭСНЫ ПАЛІТВЯЗАНЬ • ПАДТРЫМКА • САЛІДАРНАСЦЬ • ",
+    meta_title: "Фонд СУМЛЕННЫ ПАЛІТВЯЗЕНЬ | Юры Чудзіновіч",
+    meta_desc: "Афіцыйны сайт Юрыя Чудзіновіча.",
+    hero_name: "ЮРЫ ЧУДЗІНОВІЧ",
+    marquee: "ФОНД СУМЛЕННЫ ПАЛІТВЯЗАНЬ • ПАДТРЫМКА • САЛІДАРНАСЦЬ • ",
     card_photo_title: "Палітык, грамадскі дзеяч",
     card_photo_button: "Звязацца са мной",
-    card_crypto_title: "Смарт-кантракт CHUDO",
     card1_title: "Юры Чудзіновіч",
-    card1_text: "Беларускі грамадскі актывіст. Затрыманы 22 чэрвеня 2021 года.",
-    card2_title: "Партыя «ДЕЛ»",
-    card2_text: "Заснавана Юрыем Чудзіновічам. Палітычная арганізацыя.",
+    card1_text: "Беларускі грамадскі актывіст, прадпрымальнік і блогер з Баранавічаў. Аўтар канала «Кропка незвароту». Асуджаны рэжымам на 4 гады за праўду. Сімвал нязломнай волі.",
+    card2_title: "Партыя «ДЗЕЛ»",
+    card2_text: "Палітычная сіла новага часу, заснаваная Юрыем Чудзіновічам у ІЧУ. Мы выступаем за поўную змену сістэмы, вяртанне да Канстытуцыі 1994 года, свабодную эканоміку і экалагічную бяспеку.",
     card3_title: "Крыптавалюта CHUDO",
-    card3_text: "Токен стандарту KRC-20 у сетцы Kaspa.",
-    card4_title: "Фонд «Чэсны палітвязень»",
-    card4_text: "Адрас: Польшча, Варшава, ul. Lokcowa 12. Дапамога палітвязням.",
+    card3_text: "CHUDO (KRC-20) — гэта не проста токен у сетцы Kaspa. Гэта інструмент фінансавай свабоды, непадуладны санкцыям і блакіроўкам. Валюта салідарнасці і падтрымкі дэмакратычнай будучыні.",
+    card4_title: "Фонд «Сумленны палітвязень»",
+    card4_text: "Наша місія — каб ні адзін палітвязень не застаўся сам-насам з бядой. Мы заснаваны 16.12.2025 для аплаты адвакатаў, збору перадач і падтрымкі сем'яў рэпрэсаваных герояў.",
+    card_committee_title: "Камітэт салідарнасці рэпрэсаваных",
+    card_committee_text: "Глабальная сетка салідарнасці. Мы аб'ядноўваем дыяспары, палітыкаў і актывістаў па ўсім свеце для міжнароднага ціску на рэжым і вызвалення ўсіх незаконна асуджаных грамадзян.",
+    card_contract_title: "Смарт-кантракт CHUDO",
+    card_demo_title: "Дэмакратычныя сілы Беларусі",
+    card_demo_text: "Кансалідацыя ўсіх здаровых сіл грамадства. Праваабарончая арганізацыя, створаная для абароны правоў чалавека, распрацоўкі рэформаў і падрыхтоўкі кадравага рэзерву новай свабоднай краіны.",
     card4_button: "Падтрымаць фонд",
     support_button: "Падтрымаць зараз",
     footer_title1: "Юры Чудзіновіч",
     footer_address: "Адрас:",
     footer_status: "Статус:",
     footer_title3: "Сацыяльныя сеткі",
-    footer_title4: "Месенджары"
+    footer_title4: "Месенджары",
+    seo_title: "Юры Чудзіновіч: гісторыя барацьбы і шлях да свабоды",
+    seo_text: "<p><strong>Юрый Яўгенавіч Чудзіновіч</strong> — вядомая фігура беларускага супраціву, палітвязень, прадпрымальнік і грамадскі дзеяч з горада Баранавічы.</p><br><p><strong>Палітычная актыўнасць і арышт:</strong> У 2020 годзе Юрый стварыў YouTube-канал «Кропка незвароту». 22 чэрвеня 2021 года быў арыштаваны і асуджаны да 4 гадоў пазбаўлення волі.</p><br><p><strong>Новы этап (2025):</strong> Пасля вызвалення заснаваў партыю <strong>«ДЗЕЛ»</strong> і фонд <strong>«Сумленны палітвязень»</strong>.</p><br><p><strong>Інавацыі:</strong> Запушчаны крыптавалютны токен <strong>CHUDO</strong> на блокчэйне Kaspa (KRC-20) для падтрымкі рэпрэсаваных.</p>"
+  },
+  // --- 3. English ---
+  en: {
+    meta_title: "HONEST POLITICAL PRISONER FUND | Yury Chudzinovich",
+    meta_desc: "Official website of Yury Chudzinovich.",
+    hero_name: "YURY CHUDZINOVICH",
+    marquee: "HONEST POLITICAL PRISONER FUND • SUPPORT • SOLIDARITY • ",
+    card_photo_title: "Politician, Public Figure",
+    card_photo_button: "Contact Me",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Belarusian social activist, entrepreneur, and blogger from Baranovichi. Author of the 'Point of No Return' channel. Sentenced by the regime to 4 years for speaking the truth. A symbol of unbreakable will.",
+    card2_title: "Party «DEL»",
+    card2_text: "A political force of the new era, founded by Yury Chudzinovich while in detention. We stand for a complete system change, a return to the 1994 Constitution, a free economy, and ecological safety.",
+    card3_title: "Cryptocurrency CHUDO",
+    card3_text: "CHUDO (KRC-20) is not just a token on the Kaspa network. It is a tool for financial freedom, immune to sanctions and blocks. The currency of solidarity and support for a democratic future.",
+    card4_title: "Fund «Honest Political Prisoner»",
+    card4_text: "Our mission is to ensure no political prisoner is left alone with their trouble. Established on Dec 16, 2025, to pay for lawyers, collect care packages, and support the families of repressed heroes.",
+    card_committee_title: "Committee of Solidarity",
+    card_committee_text: "A global solidarity network. We unite diasporas, politicians, and activists worldwide to exert international pressure on the regime and liberate all illegally convicted citizens of Belarus.",
+    card_contract_title: "Smart Contract CHUDO",
+    card_demo_title: "Democratic Forces of Belarus",
+    card_demo_text: "Consolidation of all healthy forces of society. A human rights organization created to protect human rights, develop reforms, and prepare a personnel reserve for a new free country.",
+    card4_button: "Support the Fund",
+    support_button: "Support Now",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Address:",
+    footer_status: "Status:",
+    footer_title3: "Social Media",
+    footer_title4: "Messengers",
+    seo_title: "Yury Chudzinovich: the path of resistance",
+    seo_text: "<p><strong>Yury Yevgenyevich Chudzinovich</strong> is a prominent figure of the Belarusian resistance, a political prisoner, entrepreneur, and public figure from Baranovichi.</p><br><p><strong>Political activity:</strong> In 2020, Yury created the YouTube channel 'Point of No Return'. He was arrested on June 22, 2021, and sentenced to 4 years in prison.</p><br><p><strong>New stage (2025):</strong> After his release and emigration to Warsaw, Yury founded the <strong>«DEL» Party</strong> and the <strong>«Honest Political Prisoner» Fund</strong>.</p><br><p><strong>Innovation:</strong> The <strong>CHUDO</strong> cryptocurrency token was launched on the Kaspa blockchain (KRC-20) to support the repressed.</p>"
+  },
+  // --- 4. Polski ---
+  pl: {
+    meta_title: "Fundacja UCZCIWY WIĘZIEŃ POLITYCZNY | Jurij Czudzinowicz",
+    meta_desc: "Oficjalna strona Jurija Czudzinowicza.",
+    hero_name: "JURY CZUDZINOWICZ",
+    marquee: "FUNDACJA UCZCIWY WIĘZIEŃ POLITYCZNY • WSPARCIE • SOLIDARNOŚĆ • ",
+    card_photo_title: "Polityk, działacz społeczny",
+    card_photo_button: "Skontaktuj się ze mną",
+    card1_title: "Jurij Czudzinowicz",
+    card1_text: "Białoruski działacz społeczny, przedsiębiorca i bloger z Baranowicz. Autor kanału „Punkt nieodwracalności”. Skazany przez reżim na 4 lata za prawdę. Symbol niezłomnej woli.",
+    card2_title: "Partia «DEL»",
+    card2_text: "Siła polityczna nowej ery, założona przez Jurija Czudzinowicza w areszcie. Opowiadamy się za całkowitą zmianą systemu, powrotem do Konstytucji z 1994 roku, wolną gospodarką i bezpieczeństwem ekologicznym.",
+    card3_title: "Kryptowaluta CHUDO",
+    card3_text: "CHUDO (KRC-20) to nie tylko token w sieci Kaspa. To narzędzie wolności finansowej, odporne na sankcje i blokady. Waluta solidarności i wsparcia dla demokratycznej przyszłości.",
+    card4_title: "Fundusz «Uczciwy więzień polityczny»",
+    card4_text: "Naszą misją jest zapewnienie, że żaden więzień polityczny nie zostanie sam ze swoimi problemami. Założona 16.12.2025 r. w celu opłacania prawników, zbiórki paczek i wsparcia rodzin represjonowanych bohaterów.",
+    card_committee_title: "Komitet Solidarności",
+    card_committee_text: "Globalna sieć solidarności. Łączymy diaspory, polityków i aktywistów na całym świecie, aby wywierać międzynarodową presję na reżim i uwolnić wszystkich nielegalnie skazanych obywateli Białorusi.",
+    card_contract_title: "Inteligentny kontrakt CHUDO",
+    card_demo_title: "Siły Demokratyczne Białorusi",
+    card_demo_text: "Konsolidacja wszystkich zdrowych sił społeczeństwa. Organizacja praw człowieka stworzona w celu ochrony praw człowieka, opracowywania reform i przygotowania rezerw kadrowych dla nowego wolnego kraju.",
+    card4_button: "Wesprzyj fundusz",
+    support_button: "Wesprzyj teraz",
+    footer_title1: "Jurij Czudzinowicz",
+    footer_address: "Adres:",
+    footer_status: "Status:",
+    footer_title3: "Media społecznościowe",
+    footer_title4: "Komunikatory",
+    seo_title: "Jurij Czudzinowicz: droga oporu",
+    seo_text: "<p><strong>Jurij Jewgieniewicz Czudzinowicz</strong> to znana postać białoruskiego oporu, więzień polityczny i przedsiębiorca z Baranowicz.</p><br><p><strong>Działalność:</strong> W 2020 roku Jurij stworzył kanał YouTube „Punkt nieodwracalności”. Został aresztowany 22 czerwca 2021 roku i skazany na 4 lata więzienia.</p><br><p><strong>Nowy etap (2025):</strong> Po zwolnieniu założył partię <strong>«DEL»</strong> i fundację <strong>«Uczciwy więzień polityczny»</strong>.</p><br><p><strong>Innowacje:</strong> Uruchomiono token <strong>CHUDO</strong> na blockchainie Kaspa (KRC-20) w celu wsparcia represjonowanych.</p>"
+  },
+  // --- 5. Украинский ---
+  uk: {
+    meta_title: "Фонд ЧЕСНИЙ ПОЛІТВ'ЯЗЕНЬ | Юрій Чудинович",
+    meta_desc: "Офіційний сайт Юрія Чудиновича.",
+    hero_name: "Юрій Чудинович",
+    marquee: "ФОНД ЧЕСНИЙ ПОЛІТВ'ЯЗЕНЬ • ПІДТРИМКА • СОЛІДАРНІСТЬ • ",
+    card_photo_title: "Політик, громадський діяч",
+    card_photo_button: "Зв'язатися зі мною",
+    card1_title: "Юрій Чудинович",
+    card1_text: "Білоруський громадський активіст, підприємець та блогер. Автор каналу «Точка неповернення». Засуджений режимом на 4 роки за правду. Символ незламної волі.",
+    card2_title: "Партія «ДЄЛ»",
+    card2_text: "Політична сила нового часу, заснована Юрієм Чудиновичем в ІТТ. Ми виступаємо за повну зміну системи, повернення до Конституції 1994 року, вільну економіку та екологічну безпеку.",
+    card3_title: "Криптовалюта CHUDO",
+    card3_text: "CHUDO (KRC-20) — це не просто токен у мережі Kaspa. Це інструмент фінансової свободи, непідвладний санкціям та блокуванням. Валюта солідарності та підтримки демократичного майбутнього.",
+    card4_title: "Фонд «Чесний політв'язень»",
+    card4_text: "Наша місія — щоб жоден політв'язень не залишився сам на сам із бідою. Заснований 16.12.2025 для оплати адвокатів, збору передач та підтримки сімей репресованих героїв.",
+    card_committee_title: "Комітет солідарності",
+    card_committee_text: "Глобальна мережа солідарності. Ми об'єднуємо діаспори, політиків та активістів по всьому світу для міжнародного тиску на режим та звільнення всіх незаконно засуджених громадян Білорусі.",
+    card_contract_title: "Смарт-контракт CHUDO",
+    card_demo_title: "Демократичні сили Білорусі",
+    card_demo_text: "Консолідація всіх здорових сил суспільства. Правозахисна організація, створена для захисту прав людини, розробки реформ та підготовки кадрового резерву нової вільної країни.",
+    card4_button: "Підтримати фонд",
+    support_button: "Підтримати зараз",
+    footer_title1: "Юрій Чудинович",
+    footer_address: "Адреса:",
+    footer_status: "Статус:",
+    footer_title3: "Соцмережі",
+    footer_title4: "Месенджери",
+    seo_title: "Юрій Чудинович: шлях боротьби",
+    seo_text: "<p><strong>Юрій Євгенович Чудинович</strong> — відома фігура білоруського опору, політв'язень та підприємець.</p><br><p><strong>Діяльність:</strong> У 2020 році Юрій створив YouTube-канал «Точка неповернення». Був заарештований у 2021 році та засуджений до 4 років ув'язнення.</p><br><p><strong>Новий етап (2025):</strong> Після звільнення заснував партію <strong>«ДЄЛ»</strong> та фонд <strong>«Чесний політв'язень»</strong>.</p><br><p><strong>Інновації:</strong> Запущено токен <strong>CHUDO</strong> на блокчейні Kaspa (KRC-20) для підтримки репресованих.</p>"
+  },
+  // --- 6. Французский ---
+  fr: {
+    meta_title: "Fonds PRISONNIER POLITIQUE HONNÊTE | Youri Chudzinovich",
+    hero_name: "Youri Chudzinovich",
+    marquee: "FOND PRISONNIER POLITIQUE HONNÊTE • SOUTIEN • SOLIDARITÉ • ",
+    card_photo_title: "Homme politique",
+    card_photo_button: "Contactez-moi",
+    card1_title: "Youri Chudzinovich",
+    card1_text: "Militant social biélorusse.",
+    card2_title: "Parti «DEL»",
+    card2_text: "Organisation politique pour des réformes démocratiques.",
+    card3_title: "Cryptomonnaie CHUDO",
+    card3_text: "Token KRC-20 sur le réseau Kaspa.",
+    card4_title: "Fond «Prisonnier politique honnête»",
+    card4_text: "Aide aux prisonniers politiques.",
+    card_committee_title: "Comité de solidarité",
+    card_committee_text: "Aide aux victimes de la répression.",
+    card_contract_title: "Contrat intelligent CHUDO",
+    card_demo_title: "Forces démocratiques",
+    card_demo_text: "Organisation de défense des droits de l'homme.",
+    card4_button: "Soutenir le fond",
+    support_button: "Soutenir maintenant",
+    footer_title1: "Youri Chudzinovich",
+    footer_address: "Adresse:",
+    footer_status: "Statut:",
+    footer_title3: "Réseaux sociaux",
+    footer_title4: "Messagers",
+    seo_title: "Youri Chudzinovich : la résistance",
+    seo_text: "<p><strong>Youri Evguenievitch Chudzinovich</strong> est une figure marquante de la résistance biélorusse, prisonnier politique et entrepreneur.</p><br><p><strong>Activité :</strong> En 2020, Youri a créé la chaîne YouTube « Point de non-retour ». Il a été arrêté en 2021 et condamné à 4 ans de prison.</p><br><p><strong>Nouvelle étape (2025) :</strong> Après sa libération, il a fondé le parti <strong>« DEL »</strong> et le fonds <strong>« Prisonnier politique honnête »</strong>.</p><br><p><strong>Innovation :</strong> Lancement du token <strong>CHUDO</strong> sur la blockchain Kaspa (KRC-20).</p>"
+  },
+  // --- 7. Немецкий ---
+  de: {
+    meta_title: "Fonds EHRLICHER POLITISCHER GEFANGENER | Jurij Tschudzinowitsch",
+    hero_name: "Jurij Tschudzinowitsch",
+    marquee: "EHRLICHER POLITISCHER GEFANGENER FONDS • UNTERSTÜTZUNG • SOLIDARITÄT • ",
+    card_photo_title: "Politiker",
+    card_photo_button: "Kontakt",
+    card1_title: "Jurij Tschudzinowitsch",
+    card1_text: "Belarussischer Sozialaktivist.",
+    card2_title: "Partei «DEL»",
+    card2_text: "Politische Organisation für Reformen.",
+    card3_title: "Kryptowährung CHUDO",
+    card3_text: "KRC-20 Token im Kaspa-Netzwerk.",
+    card4_title: "Fonds «Ehrlicher politischer Gefangener»",
+    card4_text: "Hilfe für politische Gefangene.",
+    card_committee_title: "Komitee der Solidarität",
+    card_committee_text: "Hilfe für Opfer.",
+    card_contract_title: "Intelligenter Vertrag CHUDO",
+    card_demo_title: "Demokratische Kräfte",
+    card_demo_text: "Menschenrechtsorganisation.",
+    card4_button: "Fonds unterstützen",
+    support_button: "Jetzt unterstützen",
+    footer_title1: "Jurij Tschudzinowitsch",
+    footer_address: "Adresse:",
+    footer_status: "Status:",
+    footer_title3: "Soziale Medien",
+    footer_title4: "Messenger",
+    seo_title: "Jurij Tschudzinowitsch: Widerstand",
+    seo_text: "<p><strong>Jurij Jewgenjewitsch Tschudzinowitsch</strong> ist eine prominente Figur des belarussischen Widerstands, politischer Gefangener und Unternehmer.</p><br><p><strong>Aktivität:</strong> 2020 gründete Jurij den YouTube-Kanal «Point of No Return». Er wurde 2021 verhaftet und zu 4 Jahren Haft verurteilt.</p><br><p><strong>Neue Phase (2025):</strong> Nach seiner Freilassung gründete er die Partei <strong>«DEL»</strong> und den Fonds <strong>«Ehrlicher politischer Gefangener»</strong>.</p><br><p><strong>Innovation:</strong> Start des <strong>CHUDO</strong>-Tokens auf der Kaspa-Blockchain (KRC-20).</p>"
+  },
+  // --- 8. Испанский ---
+  es: {
+    meta_title: "Fondo PRISIONERO POLÍTICO HONESTO | Yuri Chudzinovich",
+    hero_name: "Yuri Chudzinovich",
+    marquee: "FONDO PRISIONERO POLÍTICO HONESTO • APOYO • SOLIDARIDAD • ",
+    card_photo_title: "Político",
+    card_photo_button: "Contáctame",
+    card1_title: "Yuri Chudzinovich",
+    card1_text: "Activista social bielorruso.",
+    card2_title: "Partido «DEL»",
+    card2_text: "Organización política por reformas.",
+    card3_title: "Criptomoneda CHUDO",
+    card3_text: "Token KRC-20 en Kaspa.",
+    card4_title: "Fondo «Prisionero político honesto»",
+    card4_text: "Ayuda a los presos políticos.",
+    card_committee_title: "Comité de Solidaridad",
+    card_committee_text: "Asistencia a las víctimas.",
+    card_contract_title: "Contrato inteligente CHUDO",
+    card_demo_title: "Fuerzas Democráticas",
+    card_demo_text: "Organización de derechos humanos.",
+    card4_button: "Apoyar fondo",
+    support_button: "Apoyar ahora",
+    footer_title1: "Yuri Chudzinovich",
+    footer_address: "Dirección:",
+    footer_status: "Estado:",
+    footer_title3: "Redes sociales",
+    footer_title4: "Mensajeros",
+    seo_title: "Yuri Chudzinovich: resistencia",
+    seo_text: "<p><strong>Yuri Yevguénievich Chudzinovich</strong> es una figura destacada de la resistencia bielorrusa, preso político y empresario.</p><br><p><strong>Actividad:</strong> En 2020, Yuri creó el canal de YouTube 'Punto de no retorno'. Fue detenido en 2021 y condenado a 4 años de prisión.</p><br><p><strong>Nueva etapa (2025):</strong> Tras su liberación, fundó el partido <strong>«DEL»</strong> y el fondo <strong>«Prisionero político honesto»</strong>.</p><br><p><strong>Innovación:</strong> Lanzamiento del token <strong>CHUDO</strong> en la blockchain Kaspa (KRC-20).</p>"
+  },
+  // --- 9. Итальянский ---
+  it: {
+    meta_title: "Fondo PRIGIONIERO POLITICO ONESTO | Yuri Chudzinovich",
+    hero_name: "Yuri Chudzinovich",
+    marquee: "FONDO PRIGIONIERO POLITICO ONESTO • SUPPORTO • SOLIDARIETÀ • ",
+    card_photo_title: "Politico",
+    card_photo_button: "Contattami",
+    card1_title: "Yuri Chudzinovich",
+    card1_text: "Attivista sociale bielorusso.",
+    card2_title: "Partito «DEL»",
+    card2_text: "Organizzazione politica per riforme.",
+    card3_title: "Criptovaluta CHUDO",
+    card3_text: "Token KRC-20 su Kaspa.",
+    card4_title: "Fondo «Prigioniero politico onesto»",
+    card4_text: "Aiuto ai prigionieri politici.",
+    card_committee_title: "Comitato di solidarietà",
+    card_committee_text: "Assistenza alle vittime.",
+    card_contract_title: "Contratto intelligente CHUDO",
+    card_demo_title: "Forze democratiche",
+    card_demo_text: "Organizzazione per i diritti umani.",
+    card4_button: "Sostieni il fondo",
+    support_button: "Sostieni ora",
+    footer_title1: "Yuri Chudzinovich",
+    footer_address: "Indirizzo:",
+    footer_status: "Stato:",
+    footer_title3: "Social media",
+    footer_title4: "Messenger",
+    seo_title: "Yuri Chudzinovich: resistenza",
+    seo_text: "<p><strong>Yuri Evgenievich Chudzinovich</strong> è una figura di spicco della resistenza bielorussa, prigioniero politico e imprenditore.</p><br><p><strong>Attività:</strong> Nel 2020, Yuri ha creato il canale YouTube 'Punto di non ritorno'. È stato arrestato nel 2021 e condannato a 4 anni di carcere.</p><br><p><strong>Nuova fase (2025):</strong> Dopo il rilascio, ha fondato il partito <strong>«DEL»</strong> e il fondo <strong>«Prigioniero politico onesto»</strong>.</p><br><p><strong>Innovazione:</strong> Lancio del token <strong>CHUDO</strong> sulla blockchain Kaspa (KRC-20).</p>"
+  },
+  // --- 10. Арабский (RTL) ---
+  ar: {
+    meta_title: "صندوق السجين السياسي الشريف | يوري تشودزينوفيتش",
+    hero_name: "يوري تشودزينوفيتش",
+    marquee: "صندوق السجين السياسي الشريف • دعم • تضامن • ",
+    card_photo_title: "سياسي",
+    card_photo_button: "اتصل بي",
+    card1_title: "يوري تشودزينوفيتش",
+    card1_text: "ناشط اجتماعي بيلاروسي.",
+    card2_title: "حزب «DEL»",
+    card2_text: "منظمة سياسية من أجل الإصلاحات.",
+    card3_title: "العملة المشفرة CHUDO",
+    card3_text: "رمز KRC-20 على شبكة Kaspa.",
+    card4_title: "صندوق «السجين السياسي الشريف»",
+    card4_text: "مساعدة السجناء السياسيين.",
+    card_committee_title: "لجنة التضامن",
+    card_committee_text: "مساعدة الضحايا.",
+    card_contract_title: "العقد الذكي CHUDO",
+    card_demo_title: "القوى الديمقراطية",
+    card_demo_text: "منظمة حقوق الإنسان.",
+    card4_button: "دعم الصندوق",
+    support_button: "دعم الآن",
+    footer_title1: "يوري تشودزينوفيتش",
+    footer_address: "العنوان:",
+    footer_status: "الحالة:",
+    footer_title3: "وسائل التواصل",
+    footer_title4: "الرسائل",
+    seo_title: "يوري تشودزينوفيتش: طريق المقاومة",
+    seo_text: "<p><strong>يوري تشودزينوفيتش</strong> هو شخصية بارزة في المقاومة البيلاروسية، وسجين سياسي، ورجل أعمال.</p><br><p><strong>النشاط:</strong> في عام 2020، أنشأ يوري قناة يوتيوب 'نقطة اللاعودة'. تم اعتقاله في عام 2021 وحكم عليه بالسجن لمدة 4 سنوات.</p><br><p><strong>المرحلة الجديدة (2025):</strong> بعد إطلاق سراحه، أسس حزب <strong>«DEL»</strong> وصندوق <strong>«السجين السياسي الشريف»</strong>.</p><br><p><strong>الابتكار:</strong> إطلاق رمز <strong>CHUDO</strong> على شبكة Kaspa (KRC-20) لدعم المضطهدين.</p>"
+  },
+  // --- 11. Китайский (Упрощенный) ---
+  zh: {
+    meta_title: "诚实政治犯基金 | 尤里·丘德兹诺维奇",
+    hero_name: "尤里·丘德兹诺维奇",
+    marquee: "诚实政治犯基金 • 支持 • 团结 • ",
+    card_photo_title: "政治家",
+    card_photo_button: "联系我",
+    card1_title: "尤里·丘德兹诺维奇",
+    card1_text: "白俄罗斯社会活动家。",
+    card2_title: "«DEL»党",
+    card2_text: "争取民主改革的政治组织。",
+    card3_title: "加密货币 CHUDO",
+    card3_text: "Kaspa 网络上的 KRC-20 代币。",
+    card4_title: "«诚实政治犯»基金",
+    card4_text: "帮助政治犯。",
+    card_committee_title: "声援委员会",
+    card_committee_text: "援助受害者。",
+    card_contract_title: "智能合约 CHUDO",
+    card_demo_title: "民主力量",
+    card_demo_text: "人权组织。",
+    card4_button: "支持基金",
+    support_button: "立即支持",
+    footer_title1: "尤里·丘德兹诺维奇",
+    footer_address: "地址：",
+    footer_status: "状态：",
+    footer_title3: "社交媒体",
+    footer_title4: "信使",
+    seo_title: "尤里·丘德兹诺维奇：抵抗之路",
+    seo_text: "<p><strong>尤里·丘德兹诺维奇</strong> 是白俄罗斯抵抗运动的杰出人物、政治犯和企业家。</p><br><p><strong>活动：</strong> 2020年，尤里创建了YouTube频道“不归点”。2021年被捕并被判处4年监禁。</p><br><p><strong>新阶段（2025）：</strong> 获释后，他创立了<strong>«DEL»党</strong>和<strong>«诚实政治犯»基金</strong>。</p><br><p><strong>创新：</strong> 在 Kaspa 区块链 (KRC-20) 上推出了 <strong>CHUDO</strong> 代币以支持受压迫者。</p>"
+  },
+  // --- 12. Датский ---
+  da: {
+    meta_title: "Fonden ÆRLIG POLITISK FANGE | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "FONDEN ÆRLIG POLITISK FANGE • STØTTE • SOLIDARITET • ",
+    card_photo_title: "Politiker",
+    card_photo_button: "Kontakt mig",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Hviderussisk social aktivist.",
+    card2_title: "Partiet «DEL»",
+    card2_text: "Politisk organisation for reformer.",
+    card3_title: "Kryptovaluta CHUDO",
+    card3_text: "KRC-20 token på Kaspa netværket.",
+    card4_title: "Fonden «Ærlig Politisk Fange»",
+    card4_text: "Hjælp til politiske fanger.",
+    card_committee_title: "Solidaritetskomité",
+    card_committee_text: "Bistand til ofre.",
+    card_contract_title: "Smart Contract CHUDO",
+    card_demo_title: "Demokratiske Kræfter",
+    card_demo_text: "Menneskerettighedsorganisation.",
+    card4_button: "Støt fonden",
+    support_button: "Støt nu",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Adresse:",
+    footer_status: "Status:",
+    footer_title3: "Sociale medier",
+    footer_title4: "Beskeder",
+    seo_title: "Yury Chudzinovich: Modstandens vej",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> er en fremtrædende figur i den hviderussiske modstandsbevægelse, politisk fange og iværksætter.</p><br><p><strong>Aktivitet:</strong> I 2020 oprettede Yury YouTube-kanalen 'Point of No Return'. Han blev arresteret i 2021 og idømt 4 års fængsel.</p><br><p><strong>Ny fase (2025):</strong> Efter sin løsladelse grundlagde han partiet <strong>«DEL»</strong> og fonden <strong>«Ærlig Politisk Fange»</strong>.</p><br><p><strong>Innovation:</strong> Lancering af <strong>CHUDO</strong> token på Kaspa blockchain (KRC-20) for at støtte de undertrykte.</p>"
+  },
+  // --- 13. Голландский ---
+  nl: {
+    meta_title: "Fonds EERLIJKE POLITIEKE GEVANGENE | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "FONDS EERLIJKE POLITIEKE GEVANGENE • STEUN • SOLIDARITEIT • ",
+    card_photo_title: "Politicus",
+    card_photo_button: "Neem contact op",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Wit-Russische activist.",
+    card2_title: "Partij «DEL»",
+    card2_text: "Politieke organisatie voor hervormingen.",
+    card3_title: "Cryptocurrency CHUDO",
+    card3_text: "KRC-20 token op Kaspa.",
+    card4_title: "Fonds «Eerlijke Politieke Gevangene»",
+    card4_text: "Hulp aan politieke gevangenen.",
+    card_committee_title: "Solidariteitscomité",
+    card_committee_text: "Hulp aan slachtoffers.",
+    card_contract_title: "Smart Contract CHUDO",
+    card_demo_title: "Democratische Krachten",
+    card_demo_text: "Mensenrechtenorganisatie.",
+    card4_button: "Steun het fonds",
+    support_button: "Nu steunen",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Adres:",
+    footer_status: "Status:",
+    footer_title3: "Sociale media",
+    footer_title4: "Berichten",
+    seo_title: "Yury Chudzinovich: de weg van het verzet",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> is een prominent figuur in het Wit-Russische verzet, politiek gevangene en ondernemer.</p><br><p><strong>Activiteit:</strong> In 2020 richtte Yury het YouTube-kanaal 'Point of No Return' op. Hij werd in 2021 gearresteerd en veroordeeld tot 4 jaar gevangenisstraf.</p><br><p><strong>Nieuwe fase (2025):</strong> Na zijn vrijlating richtte hij de partij <strong>«DEL»</strong> en het fonds <strong>«Eerlijke Politieke Gevangene»</strong> op.</p><br><p><strong>Innovatie:</strong> Lancering van het <strong>CHUDO</strong> token op de Kaspa blockchain (KRC-20) om de onderdrukten te steunen.</p>"
+  },
+  // --- 14. Финский ---
+  fi: {
+    meta_title: "Rahasto REHELLINEN POLIITTINEN VANKI | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "RAHASTO REHELLINEN POLIITTINEN VANKI • TUKI • SOLIDAARISUUS • ",
+    card_photo_title: "Poliitikko",
+    card_photo_button: "Ota yhteyttä",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Valkovenäläinen aktivisti.",
+    card2_title: "Puolue «DEL»",
+    card2_text: "Poliittinen järjestö.",
+    card3_title: "Kryptovaluutta CHUDO",
+    card3_text: "KRC-20 token Kaspa-verkossa.",
+    card4_title: "Rahasto «Rehellinen poliittinen vanki»",
+    card4_text: "Apua poliittisille vangeille.",
+    card_committee_title: "Solidaarisuuskomitea",
+    card_committee_text: "Uhrien avustaminen.",
+    card_contract_title: "Älysopimus CHUDO",
+    card_demo_title: "Demokraattiset voimat",
+    card_demo_text: "Ihmisoikeusjärjestö.",
+    card4_button: "Tue rahastoa",
+    support_button: "Tue nyt",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Osoite:",
+    footer_status: "Tila:",
+    footer_title3: "Sosiaalinen media",
+    footer_title4: "Viestimet",
+    seo_title: "Yury Chudzinovich: vastarinnan tie",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> on merkittävä hahmo Valko-Venäjän vastarinnassa, poliittinen vanki ja yrittäjä.</p><br><p><strong>Toiminta:</strong> Vuonna 2020 Yury perusti YouTube-kanavan 'Point of No Return'. Hänet pidätettiin vuonna 2021 ja tuomittiin 4 vuodeksi vankeuteen.</p><br><p><strong>Uusi vaihe (2025):</strong> Vapautumisensa jälkeen hän perusti puolueen <strong>«DEL»</strong> ja rahaston <strong>«Rehellinen poliittinen vanki»</strong>.</p><br><p><strong>Innovaatio:</strong> <strong>CHUDO</strong>-tokenin lanseeraus Kaspa-lohkoketjussa (KRC-20) sorrettujen tukemiseksi.</p>"
+  },
+  // --- 15. Венгерский ---
+  hu: {
+    meta_title: "Alap BECSÜLETES POLITIKAI FOGOLY | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "ALAP BECSÜLETES POLITIKAI FOGOLY • TÁMOGATÁS • SZOLIDARITÁS • ",
+    card_photo_title: "Politikus",
+    card_photo_button: "Kapcsolat",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Belarusz aktivista.",
+    card2_title: "«DEL» Párt",
+    card2_text: "Politikai szervezet.",
+    card3_title: "CHUDO Kriptovaluta",
+    card3_text: "KRC-20 token a Kaspa hálózaton.",
+    card4_title: "«Becsületes politikai fogoly» Alap",
+    card4_text: "Segítség a politikai foglyoknak.",
+    card_committee_title: "Szolidaritási Bizottság",
+    card_committee_text: "Segítség az áldozatoknak.",
+    card_contract_title: "Intelligens szerződés CHUDO",
+    card_demo_title: "Demokratikus Erők",
+    card_demo_text: "Emberi jogi szervezet.",
+    card4_button: "Támogatás",
+    support_button: "Támogatás most",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Cím:",
+    footer_status: "Státusz:",
+    footer_title3: "Közösségi média",
+    footer_title4: "Üzenetküldők",
+    seo_title: "Yury Chudzinovich: az ellenállás útja",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> a belarusz ellenállás kiemelkedő alakja, politikai fogoly és vállalkozó.</p><br><p><strong>Tevékenység:</strong> 2020-ban Yury létrehozta a 'Point of No Return' YouTube csatornát. 2021-ben letartóztatták és 4 év börtönre ítélték.</p><br><p><strong>Új szakasz (2025):</strong> Szabadulása után megalapította a <strong>«DEL»</strong> pártot és a <strong>«Becsületes politikai fogoly»</strong> alapot.</p><br><p><strong>Innováció:</strong> A <strong>CHUDO</strong> token elindítása a Kaspa blokkláncon (KRC-20) az elnyomottak támogatására.</p>"
+  },
+  // --- 16. Японский ---
+  ja: {
+    meta_title: "正直な政治囚基金 | ユーリ・チュジノビッチ",
+    hero_name: "ユーリ・チュジノビッチ",
+    marquee: "正直な政治囚基金 • サポート • 連帯 • ",
+    card_photo_title: "政治家",
+    card_photo_button: "お問い合わせ",
+    card1_title: "ユーリ・チュジノビッチ",
+    card1_text: "ベラルーシの活動家。",
+    card2_title: "党 «DEL»",
+    card2_text: "政治団体。",
+    card3_title: "暗号通貨 CHUDO",
+    card3_text: "Kaspaネットワーク上のKRC-20トークン。",
+    card4_title: "基金 «正直な政治囚»",
+    card4_text: "政治囚への支援。",
+    card_committee_title: "連帯委員会",
+    card_committee_text: "被害者支援。",
+    card_contract_title: "スマートコントラクト CHUDO",
+    card_demo_title: "民主勢力",
+    card_demo_text: "人権団体。",
+    card4_button: "基金を支援",
+    support_button: "今すぐ支援",
+    footer_title1: "ユーリ・チュジノビッチ",
+    footer_address: "住所:",
+    footer_status: "ステータス:",
+    footer_title3: "ソーシャルメディア",
+    footer_title4: "メッセンジャー",
+    seo_title: "ユーリ・チュジノビッチ: 抵抗の道",
+    seo_text: "<p><strong>ユーリ・チュジノビッチ</strong>は、ベラルーシの抵抗運動の著名な人物であり、政治囚であり、起業家です。</p><br><p><strong>活動:</strong> 2020年、ユーリはYouTubeチャンネル「Point of No Return」を開設しました。彼は2021年に逮捕され、懲役4年の判決を受けました。</p><br><p><strong>新しい段階 (2025年):</strong> 釈放後、彼は党<strong>«DEL»</strong>と基金<strong>«正直な政治囚»</strong>を設立しました。</p><br><p><strong>イノベーション:</strong> 抑圧された人々を支援するために、Kaspaブロックチェーン（KRC-20）で<strong>CHUDO</strong>トークンを立ち上げました。</p>"
+  },
+  // --- 17. Корейский ---
+  ko: {
+    meta_title: "정직한 정치범 기금 | 유리 추지노비치",
+    hero_name: "유리 추지노비치",
+    marquee: "정직한 정치범 기금 • 지원 • 연대 • ",
+    card_photo_title: "정치인",
+    card_photo_button: "연락하기",
+    card1_title: "유리 추지노비치",
+    card1_text: "벨라루스 활동가.",
+    card2_title: "당 «DEL»",
+    card2_text: "정치 조직.",
+    card3_title: "암호화폐 CHUDO",
+    card3_text: "Kaspa 네트워크의 KRC-20 토큰.",
+    card4_title: "기금 «정직한 정치범»",
+    card4_text: "정치범 지원.",
+    card_committee_title: "연대 위원회",
+    card_committee_text: "피해자 지원.",
+    card_contract_title: "스마트 계약 CHUDO",
+    card_demo_title: "민주 세력",
+    card_demo_text: "인권 단체.",
+    card4_button: "기금 후원",
+    support_button: "지금 후원",
+    footer_title1: "유리 추지노비치",
+    footer_address: "주소:",
+    footer_status: "상태:",
+    footer_title3: "소셜 미디어",
+    footer_title4: "메신저",
+    seo_title: "유리 추지노비치: 저항의 길",
+    seo_text: "<p><strong>유리 추지노비치</strong>는 벨라루스 저항 운동의 저명한 인물이자 정치범, 기업가입니다.</p><br><p><strong>활동:</strong> 2020년, 유리는 'Point of No Return' 유튜브 채널을 개설했습니다. 그는 2021년에 체포되어 4년형을 선고받았습니다.</p><br><p><strong>새로운 단계 (2025년):</strong> 석방 후 그는 당 <strong>«DEL»</strong>과 기금 <strong>«정직한 정치범»</strong>을 설립했습니다.</p><br><p><strong>혁신:</strong> 억압받는 사람들을 지원하기 위해 Kaspa 블록체인(KRC-20)에서 <strong>CHUDO</strong> 토큰을 출시했습니다.</p>"
+  },
+  // --- 18. Норвежский ---
+  no: {
+    meta_title: "Fondet ÆRLIG POLITISK FANGE | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "FONDET ÆRLIG POLITISK FANGE • STØTTE • SOLIDARITET • ",
+    card_photo_title: "Politiker",
+    card_photo_button: "Kontakt meg",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Hviterussisk aktivist.",
+    card2_title: "Partiet «DEL»",
+    card2_text: "Politisk organisasjon.",
+    card3_title: "Kryptovaluta CHUDO",
+    card3_text: "KRC-20 token på Kaspa.",
+    card4_title: "Fondet «Ærlig politisk fange»",
+    card4_text: "Hjelp til fanger.",
+    card_committee_title: "Solidaritetskomité",
+    card_committee_text: "Bistand til ofre.",
+    card_contract_title: "Smartkontrakt CHUDO",
+    card_demo_title: "Demokratiske krefter",
+    card_demo_text: "Menneskerettighetsorganisasjon.",
+    card4_button: "Støtt fondet",
+    support_button: "Støtt nå",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Adresse:",
+    footer_status: "Status:",
+    footer_title3: "Sosiale medier",
+    footer_title4: "Meldingstjenester",
+    seo_title: "Yury Chudzinovich: motstandens vei",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> er en fremtredende figur i den hviterussiske motstanden, politisk fange og gründer.</p><br><p><strong>Aktivitet:</strong> I 2020 opprettet Yury YouTube-kanalen 'Point of No Return'. Han ble arrestert i 2021 og dømt til 4 års fengsel.</p><br><p><strong>Ny fase (2025):</strong> Etter løslatelsen grunnla han partiet <strong>«DEL»</strong> og fondet <strong>«Ærlig politisk fange»</strong>.</p><br><p><strong>Innovasjon:</strong> Lansering av <strong>CHUDO</strong>-token på Kaspa blockchain (KRC-20) for å støtte de undertrykte.</p>"
+  },
+  // --- 19. Португальский ---
+  pt: {
+    meta_title: "Fundo PRISIONEIRO POLÍTICO HONESTO | Yuri Chudzinovich",
+    hero_name: "Yuri Chudzinovich",
+    marquee: "FUNDO PRISIONEIRO POLÍTICO HONESTO • APOIO • SOLIDARIEDADE • ",
+    card_photo_title: "Político",
+    card_photo_button: "Contacte-me",
+    card1_title: "Yuri Chudzinovich",
+    card1_text: "Ativista bielorrusso.",
+    card2_title: "Partido «DEL»",
+    card2_text: "Organização política.",
+    card3_title: "Criptomoeda CHUDO",
+    card3_text: "Token KRC-20 na Kaspa.",
+    card4_title: "Fundo «Prisioneiro Político Honesto»",
+    card4_text: "Ajuda aos prisioneiros.",
+    card_committee_title: "Comité de Solidariedade",
+    card_committee_text: "Assistência às vítimas.",
+    card_contract_title: "Contrato Inteligente CHUDO",
+    card_demo_title: "Forças Democráticas",
+    card_demo_text: "Organização de direitos humanos.",
+    card4_button: "Apoiar o fundo",
+    support_button: "Apoiar agora",
+    footer_title1: "Yuri Chudzinovich",
+    footer_address: "Endereço:",
+    footer_status: "Estado:",
+    footer_title3: "Redes sociais",
+    footer_title4: "Mensageiros",
+    seo_title: "Yuri Chudzinovich: o caminho da resistência",
+    seo_text: "<p><strong>Yuri Chudzinovich</strong> é uma figura proeminente da resistência bielorrussa, prisioneiro político e empresário.</p><br><p><strong>Atividade:</strong> Em 2020, Yuri criou o canal de YouTube 'Point of No Return'. Foi preso em 2021 e condenado a 4 anos de prisão.</p><br><p><strong>Nova fase (2025):</strong> Após a sua libertação, fundou o partido <strong>«DEL»</strong> e o fundo <strong>«Prisioneiro Político Honesto»</strong>.</p><br><p><strong>Inovação:</strong> Lançamento do token <strong>CHUDO</strong> na blockchain Kaspa (KRC-20) para apoiar os oprimidos.</p>"
+  },
+  // --- 20. Шведский ---
+  sv: {
+    meta_title: "Fonden ÄRLIG POLITISK FÅNGE | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "FONDEN ÄRLIG POLITISK FÅNGE • STÖD • SOLIDARITET • ",
+    card_photo_title: "Politiker",
+    card_photo_button: "Kontakta mig",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Vitrysk aktivist.",
+    card2_title: "Partiet «DEL»",
+    card2_text: "Politisk organisation.",
+    card3_title: "Kryptovaluta CHUDO",
+    card3_text: "KRC-20 token på Kaspa.",
+    card4_title: "Fonden «Ärlig politisk fånge»",
+    card4_text: "Hjälp till fångar.",
+    card_committee_title: "Solidaritetskommitté",
+    card_committee_text: "Bistånd till offer.",
+    card_contract_title: "Smart kontrakt CHUDO",
+    card_demo_title: "Demokratiska krafter",
+    card_demo_text: "Mänskliga rättigheter.",
+    card4_button: "Stöd fonden",
+    support_button: "Stöd nu",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Adress:",
+    footer_status: "Status:",
+    footer_title3: "Sociala medier",
+    footer_title4: "Meddelanden",
+    seo_title: "Yury Chudzinovich: motståndets väg",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> är en framstående figur i det vitryska motståndet, politisk fånge och entreprenör.</p><br><p><strong>Aktivitet:</strong> 2020 skapade Yury YouTube-kanalen 'Point of No Return'. Han greps 2021 och dömdes till 4 års fängelse.</p><br><p><strong>Ny fas (2025):</strong> Efter frigivningen grundade han partiet <strong>«DEL»</strong> och fonden <strong>«Ärlig politisk fånge»</strong>.</p><br><p><strong>Innovation:</strong> Lansering av <strong>CHUDO</strong>-token på Kaspa blockchain (KRC-20) för att stödja de förtryckta.</p>"
+  },
+  // --- 21. Амхарский ---
+  am: {
+    meta_title: "የታማኝ ፖለቲካ እስረኛ ፈንድ | Yury Chudzinovich",
+    hero_name: "ዩሪ ቹድዚኖቪች",
+    marquee: "የታማኝ ፖለቲካ እስረኛ ፈንድ • ድጋፍ • አንድነት • ",
+    card_photo_title: "ፖለቲከኛ",
+    card_photo_button: "ያግኙን",
+    card1_title: "ዩሪ ቹድዚኖቪች",
+    card1_text: "የቤላሩስ አክቲቪስት",
+    card2_title: "ፓርቲ «DEL»",
+    card2_text: "የፖለቲካ ድርጅት",
+    card3_title: "ክሪፕቶረንሲ CHUDO",
+    card3_text: "KRC-20 ቶከን በ Kaspa",
+    card4_title: "ፈንድ «ታማኝ ፖለቲካ እስረኛ»",
+    card4_text: "ለእስረኞች እርዳታ",
+    card_committee_title: "የአንድነት ኮሚቴ",
+    card_committee_text: "ለተጎጂዎች እርዳታ",
+    card_contract_title: "ስማርት ኮንትራት CHUDO",
+    card_demo_title: "ዲሞክራሲያዊ ኃይሎች",
+    card_demo_text: "የሰብአዊ መብት ድርጅት",
+    card4_button: "ፈንዱን ይደግፉ",
+    support_button: "አሁን ይደግፉ",
+    footer_title1: "ዩሪ ቹድዚኖቪች",
+    footer_address: "አድራሻ:",
+    footer_status: "ሁኔታ:",
+    footer_title3: "ማህበራዊ ሚዲያ",
+    footer_title4: "መልእክተኞች",
+    seo_title: "ዩሪ ቹድዚኖቪች: የተቃውሞ መንገድ",
+    seo_text: "<p><strong>ዩሪ ቹድዚኖቪች</strong> የቤላሩስ ተቃውሞ ታዋቂ ሰው፣ የፖለቲካ እስረኛ እና ሥራ ፈጣሪ ነው።</p><br><p><strong>እንቅስቃሴ:</strong> በ2020 ዩሪ 'Point of No Return' የYouTube ቻናል ፈጠረ። በ2021 ተይዞ የ4 ዓመት እስራት ተፈረደበት።</p><br><p><strong>አዲስ ምዕራፍ (2025):</strong> ከተፈታ በኋላ ፓርቲ <strong>«DEL»</strong> እና ፈንድ <strong>«ታማኝ ፖለቲካ እስረኛ»</strong> መሰረተ።</p><br><p><strong>ፈጠራ:</strong> የተጨቆኑትን ለመደገፍ <strong>CHUDO</strong> ቶከን በ Kaspa blockchain (KRC-20) ላይ ተጀመረ።</p>"
+  },
+  // --- 22. Бирманский ---
+  my: {
+    meta_title: "ရိုးသားသော နိုင်ငံရေးအကျဉ်းသား ရန်ပုံငွေ | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "ရိုးသားသော နိုင်ငံရေးအကျဉ်းသား ရန်ပုံငွေ • ပံ့ပိုးမှု • စည်းလုံးညီညွတ်မှု • ",
+    card_photo_title: "နိုင်ငံရေးသမား",
+    card_photo_button: "ဆက်သွယ်ရန်",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "ဘီလာရုစ် တက်ကြွလှုပ်ရှားသူ",
+    card2_title: "ပါတီ «DEL»",
+    card2_text: "နိုင်ငံရေး အဖွဲ့အစည်း",
+    card3_title: "Cryptocurrency CHUDO",
+    card3_text: "Kaspa ပေါ်ရှိ KRC-20 တိုကင်",
+    card4_title: "ရန်ပုံငွေ «ရိုးသားသော နိုင်ငံရေးအကျဉ်းသား»",
+    card4_text: "အကျဉ်းသားများကို ကူညီခြင်း",
+    card_committee_title: "စည်းလုံးညီညွတ်ရေး ကော်မတီ",
+    card_committee_text: "နစ်နာသူများကို ကူညီခြင်း",
+    card_contract_title: "စမတ်စာချုပ် CHUDO",
+    card_demo_title: "ဒီမိုကရက်တစ် အင်အားစုများ",
+    card_demo_text: "လူ့အခွင့်အရေး အဖွဲ့အစည်း",
+    card4_button: "ရန်ပုံငွေကို ထောက်ပံ့ပါ",
+    support_button: "ယခု ထောက်ပံ့ပါ",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "လိပ်စာ:",
+    footer_status: "အခြေအနေ:",
+    footer_title3: "လူမှုမီဒီယာ",
+    footer_title4: "စာတိုပေးပို့ခြင်း",
+    seo_title: "Yury Chudzinovich: တော်လှန်ရေးလမ်းစဉ်",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> သည် ဘီလာရုစ် တော်လှန်ရေးတွင် ထင်ရှားသော ပုဂ္ဂိုလ်တစ်ဦးဖြစ်ပြီး နိုင်ငံရေးအကျဉ်းသားနှင့် စီးပွားရေးလုပ်ငန်းရှင်ဖြစ်သည်။</p><br><p><strong>လှုပ်ရှားမှု:</strong> ၂၀၂၀ ခုနှစ်တွင် Yury သည် 'Point of No Return' YouTube ချန်နယ်ကို ဖန်တီးခဲ့သည်။ ၂၀၂၁ ခုနှစ်တွင် ဖမ်းဆီးခံရပြီး ထောင်ဒဏ် ၄ နှစ် ချမှတ်ခံခဲ့ရသည်။</p><br><p><strong>အဆင့်သစ် (၂၀၂၅):</strong> လွတ်မြောက်ပြီးနောက် သူသည် ပါတီ <strong>«DEL»</strong> နှင့် ရန်ပုံငွေ <strong>«ရိုးသားသော နိုင်ငံရေးအကျဉ်းသား»</strong> ကို တည်ထောင်ခဲ့သည်။</p><br><p><strong>တီထွင်မှု:</strong> ဖိနှိပ်ခံရသူများကို ကူညီရန် Kaspa blockchain (KRC-20) ပေါ်တွင် <strong>CHUDO</strong> တိုကင်ကို စတင်ခဲ့သည်။</p>"
+  },
+  // --- 23. Дари (RTL) ---
+  prs: {
+    meta_title: "صندوق زندانی سیاسی صادق | یوری چودزینوویچ",
+    hero_name: "یوری چودزینوویچ",
+    marquee: "صندوق زندانی سیاسی صادق • حمایت • همبستگی • ",
+    card_photo_title: "سیاستمدار",
+    card_photo_button: "تماس با من",
+    card1_title: "یوری چودزینوویچ",
+    card1_text: "فعال بلاروس",
+    card2_title: "حزب «DEL»",
+    card2_text: "سازمان سیاسی",
+    card3_title: "ارز دیجیتال CHUDO",
+    card3_text: "توکن KRC-20 در شبکه Kaspa",
+    card4_title: "صندوق «زندانی سیاسی صادق»",
+    card4_text: "کمک به زندانیان",
+    card_committee_title: "کمیته همبستگی",
+    card_committee_text: "کمک به قربانیان",
+    card_contract_title: "قرارداد هوشمند CHUDO",
+    card_demo_title: "نیروهای دموکراتیک",
+    card_demo_text: "سازمان حقوق بشر",
+    card4_button: "حمایت از صندوق",
+    support_button: "حمایت اکنون",
+    footer_title1: "یوری چودزینوویچ",
+    footer_address: "آدرس:",
+    footer_status: "وضعیت:",
+    footer_title3: "رسانه های اجتماعی",
+    footer_title4: "پیام رسان ها",
+    seo_title: "یوری چودزینوویچ: مسیر مقاومت",
+    seo_text: "<p><strong>یوری چودزینوویچ</strong> چهره برجسته مقاومت بلاروس، زندانی سیاسی و کارآفرین است.</p><br><p><strong>فعالیت:</strong> در سال 2020، یوری کانال یوتیوب 'نقطه بی بازگشت' را ایجاد کرد. او در سال 2021 دستگیر و به 4 سال زندان محکوم شد.</p><br><p><strong>مرحله جدید (2025):</strong> پس از آزادی، او حزب <strong>«DEL»</strong> و صندوق <strong>«زندانی سیاسی صادق»</strong> را تأسیس کرد.</p><br><p><strong>نوآوری:</strong> راه اندازی توکن <strong>CHUDO</strong> در بلاکچین Kaspa (KRC-20) برای حمایت از سرکوب شدگان.</p>"
+  },
+  // --- 24. Греческий ---
+  el: {
+    meta_title: "Ταμείο ΕΙΛΙΚΡΙΝΗΣ ΠΟΛΙΤΙΚΟΣ ΚΡΑΤΟΥΜΕΝΟΣ | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "ΤΑΜΕΙΟ ΕΙΛΙΚΡΙΝΗΣ ΠΟΛΙΤΙΚΟΣ ΚΡΑΤΟΥΜΕΝΟΣ • ΥΠΟΣΤΗΡΙΞΗ • ΑΛΛΗΛΕΓΓΥΗ • ",
+    card_photo_title: "Πολιτικός",
+    card_photo_button: "Επικοινωνία",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Λευκορώσος ακτιβιστής.",
+    card2_title: "Κόμμα «DEL»",
+    card2_text: "Πολιτική οργάνωση.",
+    card3_title: "Κρυπτονόμισμα CHUDO",
+    card3_text: "Διακριτικό KRC-20 στο Kaspa.",
+    card4_title: "Ταμείο «Ειλικρινής πολιτικός κρατούμενος»",
+    card4_text: "Βοήθεια σε κρατούμενους.",
+    card_committee_title: "Επιτροπή Αλληλεγγύης",
+    card_committee_text: "Βοήθεια στα θύματα.",
+    card_contract_title: "Έξυπνο συμβόλαιο CHUDO",
+    card_demo_title: "Δημοκρατικές Δυνάμεις",
+    card_demo_text: "Οργάνωση ανθρωπίνων δικαιωμάτων.",
+    card4_button: "Υποστήριξη ταμείου",
+    support_button: "Υποστήριξη τώρα",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Διεύθυνση:",
+    footer_status: "Κατάσταση:",
+    footer_title3: "Κοινωνικά δίκτυα",
+    footer_title4: "Μηνύματα",
+    seo_title: "Yury Chudzinovich: ο δρόμος της αντίστασης",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> είναι μια εξέχουσα μορφή της λευκορωσικής αντίστασης, πολιτικός κρατούμενος και επιχειρηματίας.</p><br><p><strong>Δραστηριότητα:</strong> Το 2020, ο Γιούρι δημιούργησε το κανάλι YouTube 'Point of No Return'. Συνελήφθη το 2021 και καταδικάστηκε σε 4 χρόνια φυλάκιση.</p><br><p><strong>Νέο στάδιο (2025):</strong> Μετά την αποφυλάκισή του, ίδρυσε το κόμμα <strong>«DEL»</strong> και το ταμείο <strong>«Ειλικρινής πολιτικός κρατούμενος»</strong>.</p><br><p><strong>Καινοτομία:</strong> Κυκλοφορία του διακριτικού <strong>CHUDO</strong> στο blockchain Kaspa (KRC-20) για την υποστήριξη των καταπιεσμένων.</p>"
+  },
+  // --- 25. Малайский ---
+  ms: {
+    meta_title: "Tabung TAHANAN POLITIK JUJUR | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "TABUNG TAHANAN POLITIK JUJUR • SOKONGAN • SOLIDARITI • ",
+    card_photo_title: "Ahli Politik",
+    card_photo_button: "Hubungi Saya",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Aktivis Belarus.",
+    card2_title: "Parti «DEL»",
+    card2_text: "Organisasi politik.",
+    card3_title: "Mata Wang Kripto CHUDO",
+    card3_text: "Token KRC-20 di Kaspa.",
+    card4_title: "Tabung «Tahanan Politik Jujur»",
+    card4_text: "Bantuan kepada tahanan.",
+    card_committee_title: "Jawatankuasa Solidariti",
+    card_committee_text: "Bantuan kepada mangsa.",
+    card_contract_title: "Kontrak Pintar CHUDO",
+    card_demo_title: "Kuasa Demokratik",
+    card_demo_text: "Organisasi hak asasi manusia.",
+    card4_button: "Sokong tabung",
+    support_button: "Sokong sekarang",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Alamat:",
+    footer_status: "Status:",
+    footer_title3: "Media Sosial",
+    footer_title4: "Pengutus",
+    seo_title: "Yury Chudzinovich: jalan penentangan",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> adalah tokoh terkemuka penentangan Belarus, tahanan politik dan usahawan.</p><br><p><strong>Aktiviti:</strong> Pada tahun 2020, Yury mencipta saluran YouTube 'Point of No Return'. Dia ditangkap pada tahun 2021 dan dijatuhi hukuman penjara 4 tahun.</p><br><p><strong>Peringkat baru (2025):</strong> Selepas dibebaskan, dia mengasaskan parti <strong>«DEL»</strong> dan tabung <strong>«Tahanan Politik Jujur»</strong>.</p><br><p><strong>Inovasi:</strong> Pelancaran token <strong>CHUDO</strong> di blockchain Kaspa (KRC-20) untuk menyokong mereka yang ditindas.</p>"
+  },
+  // --- 26. Суахили ---
+  sw: {
+    meta_title: "Mfuko wa MFUNGW WA KISIASA MWAMINIFU | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "MFUKO WA MFUNGW WA KISIASA MWAMINIFU • MSAADA • UMOJA • ",
+    card_photo_title: "Mwanasiasa",
+    card_photo_button: "Wasiliana nami",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Mwanaharakati wa Belarus.",
+    card2_title: "Chama «DEL»",
+    card2_text: "Shirika la kisiasa.",
+    card3_title: "Sarafu ya Dijiti CHUDO",
+    card3_text: "Tokeni ya KRC-20 kwenye Kaspa.",
+    card4_title: "Mfuko «Mfungwa wa Kisiasa Mwaminifu»",
+    card4_text: "Msaada kwa wafungwa.",
+    card_committee_title: "Kamati ya Umoja",
+    card_committee_text: "Msaada kwa waathirika.",
+    card_contract_title: "Mkataba Mahiri CHUDO",
+    card_demo_title: "Nguvu za Kidemokrasia",
+    card_demo_text: "Shirika la haki za binadamu.",
+    card4_button: "Saidiana mfuko",
+    support_button: "Saidiana sasa",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Anwani:",
+    footer_status: "Hali:",
+    footer_title3: "Mitandao ya Kijamii",
+    footer_title4: "Ujumbe",
+    seo_title: "Yury Chudzinovich: njia ya upinzani",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> ni mtu mashuhuri katika upinzani wa Belarus, mfungwa wa kisiasa na mjasiriamali.</p><br><p><strong>Shughuli:</strong> Mnamo 2020, Yury aliunda chaneli ya YouTube 'Point of No Return'. Alikamatwa mnamo 2021 na kuhukumiwa kifungo cha miaka 4 jela.</p><br><p><strong>Hatua mpya (2025):</strong> Baada ya kuachiliwa, alianzisha chama <strong>«DEL»</strong> na mfuko <strong>«Mfungwa wa Kisiasa Mwaminifu»</strong>.</p><br><p><strong>Ubunifu:</strong> Uzinduzi wa tokeni <strong>CHUDO</strong> kwenye blockchain ya Kaspa (KRC-20) ili kusaidia wanaoonewa.</p>"
+  },
+  // --- 27. Тайский ---
+  th: {
+    meta_title: "กองทุนนักโทษการเมืองผู้ซื่อสัตย์ | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "กองทุนนักโทษการเมืองผู้ซื่อสัตย์ • การสนับสนุน • ความสามัคคี • ",
+    card_photo_title: "นักการเมือง",
+    card_photo_button: "ติดต่อฉัน",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "นักเคลื่อนไหวชาวเบลารุส",
+    card2_title: "พรรค «DEL»",
+    card2_text: "องค์กรทางการเมือง",
+    card3_title: "สกุลเงินดิจิทัล CHUDO",
+    card3_text: "โทเค็น KRC-20 บน Kaspa",
+    card4_title: "กองทุน «นักโทษการเมืองผู้ซื่อสัตย์»",
+    card4_text: "ช่วยเหลือผู้ต้องขัง",
+    card_committee_title: "คณะกรรมการความสามัคคี",
+    card_committee_text: "ช่วยเหลือผู้ประสบภัย",
+    card_contract_title: "สัญญาอัจฉริยะ CHUDO",
+    card_demo_title: "กองกำลังประชาธิปไตย",
+    card_demo_text: "องค์กรสิทธิมนุษยชน",
+    card4_button: "สนับสนุนกองทุน",
+    support_button: "สนับสนุนทันที",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "ที่อยู่:",
+    footer_status: "สถานะ:",
+    footer_title3: "โซเชียลมีเดีย",
+    footer_title4: "ข้อความ",
+    seo_title: "Yury Chudzinovich: เส้นทางแห่งการต่อต้าน",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> เป็นบุคคลสำคัญในการต่อต้านของเบลารุส นักโทษการเมือง และผู้ประกอบการ</p><br><p><strong>กิจกรรม:</strong> ในปี 2020 Yury ได้สร้างช่อง YouTube 'Point of No Return' เขาถูกจับกุมในปี 2021 และถูกตัดสินจำคุก 4 ปี</p><br><p><strong>ระยะใหม่ (2025):</strong> หลังจากได้รับการปล่อยตัว เขาได้ก่อตั้งพรรค <strong>«DEL»</strong> และกองทุน <strong>«นักโทษการเมืองผู้ซื่อสัตย์»</strong></p><br><p><strong>นวัตกรรม:</strong> การเปิดตัวโทเค็น <strong>CHUDO</strong> บนบล็อกเชน Kaspa (KRC-20) เพื่อสนับสนุนผู้ถูกกดขี่</p>"
+  },
+  // --- 28. Турецкий ---
+  tr: {
+    meta_title: "DÜRÜST SİYASİ MAHKUM FONU | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "DÜRÜST SİYASİ MAHKUM FONU • DESTEK • DAYANIŞMA • ",
+    card_photo_title: "Siyasetçi",
+    card_photo_button: "Bana ulaşın",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Belaruslu aktivist.",
+    card2_title: "Parti «DEL»",
+    card2_text: "Siyasi örgüt.",
+    card3_title: "Kripto Para CHUDO",
+    card3_text: "Kaspa ağında KRC-20 jetonu.",
+    card4_title: "Fon «Dürüst Siyasi Mahkum»",
+    card4_text: "Mahkumlara yardım.",
+    card_committee_title: "Dayanışma Komitesi",
+    card_committee_text: "Mağdurlara yardım.",
+    card_contract_title: "Akıllı Sözleşme CHUDO",
+    card_demo_title: "Demokratik Güçler",
+    card_demo_text: "İnsan hakları örgütü.",
+    card4_button: "Fonu destekle",
+    support_button: "Şimdi destekle",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Adres:",
+    footer_status: "Durum:",
+    footer_title3: "Sosyal Medya",
+    footer_title4: "Mesajlaşma",
+    seo_title: "Yury Chudzinovich: direniş yolu",
+    seo_text: "<p><strong>Yury Chudzinovich</strong>, Belarus direnişinin önde gelen isimlerinden biri, siyasi mahkum ve girişimcidir.</p><br><p><strong>Faaliyet:</strong> 2020'de Yury, 'Point of No Return' YouTube kanalını oluşturdu. 2021'de tutuklandı ve 4 yıl hapis cezasına çarptırıldı.</p><br><p><strong>Yeni aşama (2025):</strong> Serbest bırakıldıktan sonra <strong>«DEL»</strong> partisini ve <strong>«Dürüst Siyasi Mahkum»</strong> fonunu kurdu.</p><br><p><strong>İnovasyon:</strong> Ezilenleri desteklemek için Kaspa blok zincirinde (KRC-20) <strong>CHUDO</strong> jetonunun piyasaya sürülmesi.</p>"
+  },
+  // --- 29. Вьетнамский ---
+  vi: {
+    meta_title: "Quỹ TÙ NHÂN CHÍNH TRỊ TRUNG THỰC | Yury Chudzinovich",
+    hero_name: "Yury Chudzinovich",
+    marquee: "QUỸ TÙ NHÂN CHÍNH TRỊ TRUNG THỰC • HỖ TRỢ • ĐOÀN KẾT • ",
+    card_photo_title: "Chính trị gia",
+    card_photo_button: "Liên hệ với tôi",
+    card1_title: "Yury Chudzinovich",
+    card1_text: "Nhà hoạt động Belarus.",
+    card2_title: "Đảng «DEL»",
+    card2_text: "Tổ chức chính trị.",
+    card3_title: "Tiền điện tử CHUDO",
+    card3_text: "Token KRC-20 trên mạng Kaspa.",
+    card4_title: "Quỹ «Tù nhân chính trị trung thực»",
+    card4_text: "Hỗ trợ tù nhân.",
+    card_committee_title: "Ủy ban Đoàn kết",
+    card_committee_text: "Hỗ trợ nạn nhân.",
+    card_contract_title: "Hợp đồng thông minh CHUDO",
+    card_demo_title: "Lực lượng Dân chủ",
+    card_demo_text: "Tổ chức nhân quyền.",
+    card4_button: "Hỗ trợ quỹ",
+    support_button: "Hỗ trợ ngay",
+    footer_title1: "Yury Chudzinovich",
+    footer_address: "Địa chỉ:",
+    footer_status: "Trạng thái:",
+    footer_title3: "Mạng xã hội",
+    footer_title4: "Tin nhắn",
+    seo_title: "Yury Chudzinovich: con đường kháng chiến",
+    seo_text: "<p><strong>Yury Chudzinovich</strong> là một nhân vật nổi bật trong phong trào kháng chiến Belarus, tù nhân chính trị và doanh nhân.</p><br><p><strong>Hoạt động:</strong> Năm 2020, Yury đã tạo kênh YouTube 'Point of No Return'. Ông bị bắt vào năm 2021 và bị kết án 4 năm tù.</p><br><p><strong>Giai đoạn mới (2025):</strong> Sau khi được trả tự do, ông thành lập đảng <strong>«DEL»</strong> và quỹ <strong>«Tù nhân chính trị trung thực»</strong>.</p><br><p><strong>Đổi mới:</strong> Ra mắt token <strong>CHUDO</strong> trên blockchain Kaspa (KRC-20) để hỗ trợ những người bị áp bức.</p>"
   }
 };
 
-document.querySelectorAll('input[name="lang"]').forEach(radio => {
-  radio.addEventListener('change', (e) => {
-    const lang = e.target.value;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[lang][key]) {
-        if (translations[lang][key].includes('<')) {
-           el.innerHTML = translations[lang][key];
-        } else {
-           el.textContent = translations[lang][key];
-        }
+function applyLang(lang) {
+  document.documentElement.lang = lang;
+  
+  // SEO Fix: Обновление URL
+  const url = new URL(window.location);
+  url.searchParams.set('lang', lang);
+  window.history.pushState({}, '', url);
+
+  // RTL Support
+  const rtlLangs = ['ar', 'prs'];
+  document.documentElement.dir = rtlLangs.includes(lang) ? 'rtl' : 'ltr';
+
+  if(translations[lang]) {
+      if(translations[lang].meta_title) document.title = translations[lang].meta_title;
+      if(translations[lang].meta_desc) {
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if(metaDesc) metaDesc.setAttribute('content', translations[lang].meta_desc);
       }
-    });
+      if(translations[lang].hero_name) {
+         const photo = document.querySelector('.photo-card-bg');
+         if(photo) photo.alt = translations[lang].hero_name;
+      }
+  }
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      if (translations[lang][key].includes('<')) {
+        el.innerHTML = translations[lang][key];
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+}
+
+document.querySelectorAll('.flag-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    const lang = item.getAttribute('data-lang');
+    applyLang(lang);
+    const globeFlags = document.getElementById('globeFlags');
+    if(globeFlags) globeFlags.classList.remove('show');
   });
 });
 
-// Кнопки копирования
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.copy-btn');
-    if (!btn) return;
-    const text = document.getElementById(btn.dataset.target).textContent;
-    navigator.clipboard.writeText(text).then(() => {
-        const old = btn.textContent;
-        btn.textContent = '✅';
-        setTimeout(() => btn.textContent = old, 1500);
-    });
-});
+const globeBtn = document.getElementById('globeBtn');
+const globeFlags = document.getElementById('globeFlags');
+if (globeBtn && globeFlags) {
+  globeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    globeFlags.classList.toggle('show');
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.lang-globe')) {
+      globeFlags.classList.remove('show');
+    }
+  });
+}
 
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('themeIcon').textContent = isDark ? '🌙' : '☀️';
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    document.getElementById('themeIcon').textContent = isDark ? '🌙' : '☀️';
+  });
+}
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.target;
+    const textElement = document.getElementById(id);
+    if(textElement) {
+      navigator.clipboard.writeText(textElement.textContent);
+      const originalText = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.style.background = '#22c55e';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+      }, 1200);
+    }
+  });
 });
 </script>
 </body>
